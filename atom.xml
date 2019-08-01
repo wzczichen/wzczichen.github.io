@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-08-01T07:10:58.400Z</updated>
+  <updated>2019-08-01T23:30:32.104Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.codedog.fun/2019/08/01/My-First/"/>
     <id>http://www.codedog.fun/2019/08/01/My-First/</id>
     <published>2019-08-01T07:10:19.000Z</published>
-    <updated>2019-08-01T07:10:58.400Z</updated>
+    <updated>2019-08-01T23:30:32.104Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="The-First"><a href="#The-First" class="headerlink" title="The First"></a>The First</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void getId()&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//哈哈</span><br></pre></td></tr></table></figure><table><thead><tr><th align="center">姓名</th><th align="center">年龄</th><th align="center">生日</th><th align="center">性别</th><th align="center">籍贯</th></tr></thead><tbody><tr><td align="center">wang</td><td align="center">22</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">zi</td><td align="center">21</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">chen</td><td align="center">11</td><td align="center"></td><td align="center"></td><td align="center"></td></tr></tbody></table><hr><blockquote><p>王子辰诗集</p></blockquote><p><a href="www.codedog.fun">我的网址</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="The-First"><a href="#The-First" class="headerlink" title="The First"></a>The First</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void getId()&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//哈哈</span><br></pre></td></tr></table></figure><table><thead><tr><th align="center">姓名</th><th align="center">年龄</th><th align="center">生日</th><th align="center">性别</th><th align="center">籍贯</th></tr></thead><tbody><tr><td align="center">wang</td><td align="center">22</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">zi</td><td align="center">21</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">chen</td><td align="center">11</td><td align="center"></td><td align="center"></td><td align="center"></td></tr></tbody></table><hr><blockquote><p>王子辰诗集</p></blockquote><p><a href="http://www.codedog.fun">我的网址</a></p>]]></content>
     
     <summary type="html">
     
@@ -36,6 +36,8 @@
     
     
       <category term="scala" scheme="http://www.codedog.fun/tags/scala/"/>
+    
+      <category term="python" scheme="http://www.codedog.fun/tags/python/"/>
     
   </entry>
   
