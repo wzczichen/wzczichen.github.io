@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Test]]></title>
+    <url>%2F2019%2F08%2F05%2FTest%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Git The requested URL returned error 403]]></title>
     <url>%2F2019%2F08%2F05%2FGit%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[一、问题描述hexo部署的仓库需要换到另一个账号上，于是按照之前创建的步骤，修改了hexo安装目录下的deploy的repo地址，然而hexo s和hexo g没出错，但是hexo d时，会出错。 二、问题分析 有可能是你真的没有权限 有可能是修改了git仓库密码和用户名，导致本地内存和硬盘中的用户名和密码不能用 三、问题处理 执行git config --list ，查看git的配置信息 图中的user.email和user.name分别是登录的邮箱和用户名。 打开控制面板-&gt;用户账户-&gt;管理Windows凭据，向下看有普通凭据，找到关于git:https://github.com并删除。 然而我是通过这种方法成功的。 1234//先去根目录root@wangxiaozhang:~/blog cd//再执行来查看credential中缓存的用户root@wangxiaozhang:~# vi .git-credentials 这时我发现这里的代码是我准备要替换的账号名和密码，于是立刻改成现在用的账户名和密码，之后hexo d成功！]]></content>
