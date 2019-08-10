@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SparkSQL中RDD和DataFormat和DataSet的转换]]></title>
+    <url>%2F2019%2F08%2F10%2FRDD%E3%80%81DF%E3%80%81DS%2F</url>
+    <content type="text"><![CDATA[RDD ——&gt;DF/DS ——DF: 12345678910//第一种rdd.map&#123; x=&gt;val pa = x.split(&quot;,&quot;);(pa(0).trim,pa(1).trim)&#125;.toDF(&quot;name&quot;,&quot;age&quot;)//-------------------------------------------------------//第二种case class People(name:String,age:Integer)rdd.map&#123; x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)&#125;.toDF ——DS: 1234case class People(name:String,age:Integer)rdd.map&#123; x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)&#125;.toDS DF——RDD/DF ——RDD: DF.rdd获取值，编译器不校验类型 ——DS: 12case class People(name:String,age:Integer)DF.as[People] DS——RDD/DF ——RDD: DS.rdd获取值，编译器校验类型 ——DF: DS.toDF即可]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git——The requested URL returned error 403]]></title>
     <url>%2F2019%2F08%2F05%2FGit%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[一、问题描述hexo部署的仓库需要换到另一个账号上，于是按照之前创建的步骤，修改了hexo安装目录下的deploy的repo地址，然而hexo s和hexo g没出错，但是hexo d时，会出错。 二、问题分析 有可能是你真的没有权限 有可能是修改了git仓库密码和用户名，导致本地内存和硬盘中的用户名和密码不能用 三、问题处理 执行git config --list ，查看git的配置信息 图中的user.email和user.name分别是登录的邮箱和用户名。 打开控制面板-&gt;用户账户-&gt;管理Windows凭据，向下看有普通凭据，找到关于git:https://github.com并删除。 然而我是通过这种方法成功的。 1234//先去根目录root@wangxiaozhang:~/blog cd//再执行来查看credential中缓存的用户root@wangxiaozhang:~# vi .git-credentials 这时我发现这里的代码是我准备要替换的账号名和密码，于是立刻改成现在用的账户名和密码，之后hexo d成功！]]></content>
