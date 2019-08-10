@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[SparkSQL中RDD和DataFormat和DataSet的转换]]></title>
+    <title><![CDATA[SparkSQL中RDD和DataFrame和DataSet的转换]]></title>
     <url>%2F2019%2F08%2F10%2FRDD%E3%80%81DF%E3%80%81DS%2F</url>
     <content type="text"><![CDATA[RDD ——&gt;DF/DS ——DF: 12345678910//第一种rdd.map&#123; x=&gt;val pa = x.split(&quot;,&quot;);(pa(0).trim,pa(1).trim)&#125;.toDF(&quot;name&quot;,&quot;age&quot;)//-------------------------------------------------------//第二种case class People(name:String,age:Integer)rdd.map&#123; x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)&#125;.toDF ——DS: 1234case class People(name:String,age:Integer)rdd.map&#123; x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)&#125;.toDS DF——RDD/DF ——RDD: DF.rdd获取值，编译器不校验类型 ——DS: 12case class People(name:String,age:Integer)DF.as[People] DS——RDD/DF ——RDD: DS.rdd获取值，编译器校验类型 ——DF: DS.toDF即可]]></content>
       <categories>

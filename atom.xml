@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-08-10T00:02:56.183Z</updated>
+  <updated>2019-08-10T00:06:57.122Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SparkSQL中RDD和DataFormat和DataSet的转换</title>
+    <title>SparkSQL中RDD和DataFrame和DataSet的转换</title>
     <link href="http://www.codedog.fun/2019/08/10/RDD%E3%80%81DF%E3%80%81DS/"/>
     <id>http://www.codedog.fun/2019/08/10/RDD、DF、DS/</id>
     <published>2019-08-09T23:41:09.000Z</published>
-    <updated>2019-08-10T00:02:56.183Z</updated>
+    <updated>2019-08-10T00:06:57.122Z</updated>
     
     <content type="html"><![CDATA[<ul><li><p>RDD ——&gt;DF/DS</p><ul><li><p>——DF:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//第一种</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa = x.split(&quot;,&quot;);(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDF(&quot;name&quot;,&quot;age&quot;)</span><br><span class="line">//-------------------------------------------------------</span><br><span class="line">//第二种</span><br><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDF</span><br></pre></td></tr></table></figure></li><li><p>——DS:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDS</span><br></pre></td></tr></table></figure></li></ul></li><li><p>DF——RDD/DF</p><ul><li>——RDD:    <font color="red">DF.rdd获取值，编译器不校验类型</font></li><li>——DS: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">DF.as[People]</span><br></pre></td></tr></table></figure></li></ul></li><li><p>DS——RDD/DF</p><ul><li>——RDD:  <font color="red">DS.rdd获取值，编译器校验类型</font></li><li>——DF:   <font color="red">DS.toDF即可</font></li></ul></li></ul>]]></content>
     
