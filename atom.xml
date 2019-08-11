@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-08-10T00:06:57.122Z</updated>
+  <updated>2019-08-11T07:02:43.450Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RDD的认知</title>
+    <link href="http://www.codedog.fun/2019/08/11/RDD%E7%9A%84%E8%AE%A4%E7%9F%A5/"/>
+    <id>http://www.codedog.fun/2019/08/11/RDD的认知/</id>
+    <published>2019-08-11T02:45:19.000Z</published>
+    <updated>2019-08-11T07:02:43.450Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、转换操作"><a href="#一、转换操作" class="headerlink" title="一、转换操作"></a>一、转换操作</h2><table><thead><tr><th align="left">函数</th><th align="left">解释</th><th align="left">案例</th></tr></thead><tbody><tr><td align="left"><code>def map[U:ClassTag](f:T =&gt; U):RDD[U]</code></td><td align="left">将函数应用于RDD的每一个元素，并返回一个新的RDD</td><td align="left">val rdd=sc.makeRDD(Array(1,2,3,4,5))   <br>  rdd.map((_,1)).collect</td></tr><tr><td align="left"><code>def filter(f:T =&gt; Boolean):RDD[T]</code></td><td align="left">通过提供的产生boolean条件的表达式来返回符合结果为True的新的RDD</td><td align="left">val rdd=sc.makeRDD(Array(“aa1”,”aa2”,”bb1”,”bb2”)) <br>   rdd.filter(_.startsWith(“aa”)).collect</td></tr><tr><td align="left"><code>def flatMap[U: ClassTag](f: T =&gt; TraversableOnce[U]): RDD[U]</code></td><td align="left">将函数应用于RDD中的每一项，对于每一项都产生一个集合，并将集合中的元素压扁成一个集合</td><td align="left">val rdd=makeRDD(1 to 3) <br>       rdd.flatMap((1 to _)).collect</td></tr><tr><td align="left"><code>def mapPartitions[U:ClassTag](f:Iterator[T] =&gt;Iterator[U],preservesPartitioning:Boolean=false): RDD[U]</code></td><td align="left">将函数应用于RDD的每一个分区，每一个分区运行一次，函数需要能够接受Iterator类型，然后返回Iterator</td><td align="left">略</td></tr><tr><td align="left"><code>def mapPartitionsWithIndex[U:ClassTag](f:(Int,Iterator[T])=&gt;Iterator[U],preservesPartitioning:Boolean =false):RDD[U]</code></td><td align="left">将函数应用于RDD中的每一个分区，每一个分区运行一次，函数能够接受 一个分区的索引值 和一个代表分区内所有数据的Iterator类型，需要返回Iterator类型</td><td align="left">略</td></tr><tr><td align="left"><code>def sample(withReplacement: Boolean,fraction:Double,seed:Long=Utils.random.nextLong): RDD[T]</code></td><td align="left">在RDD中以seed为种子返回大致上有fraction比例个数据样本RDD，withReplacement表示是否采用放回式抽样</td><td align="left">val sample=sc.makeRDD(1 to 100)    <br> sample.sample(false,0.1,4).collect   <br> sample.sample(true,0.1,4).collect</td></tr><tr><td align="left"><code>def union(other:RDD[T]):RDD[T]</code></td><td align="left">将两个RDD中的元素进行合并，返回一个新的RDD</td><td align="left">val a=sc.makeRDD(1 to 10)   <br>                       sc.makeRDD(5 to 15).union(a).collect</td></tr><tr><td align="left"><code>def intersection(other:RDD[T]):RDD[T]</code></td><td align="left">将两个RDD做交集，返回一个新的RDD</td><td align="left">val a=sc.makeRDD(1 to 10)   <br> val b=sc.makeRDD(5 to 15)    <br> a.intersection(b).collect</td></tr><tr><td align="left"><code>def distinct():RDD[T]</code></td><td align="left">将当前RDD进行去重后，返回一个新的RDD</td><td align="left">val dis=sc.makeRDD(List(1,2,3,4,5,2,3,4,1,6,4)） <br>  dis.distinct.collect</td></tr><tr><td align="left"><code>def partitionBy(partitioner:Partitioner):RDD[(K,V)]</code></td><td align="left">根据设置的分区器重新将RDD进行分区，返回新的RDD</td><td align="left">val par=sc.makeRDD(List((1,”a”),(2,”b”),(3,”c”)),4） <br>  par.partitionBy(new org.apache.spark.HashPatitioner(2))</td></tr><tr><td align="left"><code>def reduceByKey(func:(V,V)=&gt;V):RDD[(K,V)]</code></td><td align="left">根据Key值将相同Key的元组的值用func进行计算，返回新的RDD</td><td align="left">val rdd = sc.parallelize(Array(1,2,3,1,2))   <br> rdd.map((<em>,1))   res0.reduceByKey(</em>+_)</td></tr><tr><td align="left"><code>def groupByKey():RDD[(K,Iterable[V])]</code></td><td align="left">将相同Key的值进行聚集，输出一个(K, Iterable[V])类型的RDD</td><td align="left">val words=Array(“one”,”one”,”two”,”three”,”three”,”three”) <br>  val wordPair=sc.parallelize(words).map((_,1)) <br>   val group=wordPair.groupByKey()   <br>  val map=group.map(t=&gt;(t._1,t._2.sum))</td></tr><tr><td align="left"><code>def combineByKey[C](createCombiner:V=&gt;C,mergeValue:(C,V)=&gt; C,mergeCombiners:(C,C)=&gt;C,numPartitions:Int):RDD[(K,C)]</code></td><td align="left">对相同K，把V合并成一个集合.<br>createCombiner: combineByKey()会遍历分区中的所有元素，因此每个元素的键要么还没有遇到过，要么就和之前的某个元素的键相同。如果这是一个新的元素,combineByKey()会使用一个叫作 createCombiner() 的函数来创建那个键对应的累加器的初始值<br>mergeValue:如果这是一个在处理当前分区之前已经遇到的键,它会使用 mergeValue()方法将该键的累加器对应的当前值与这个新的值进行合并<br>mergeCombiners:由于每个分区都是独立处理的，因此对于同一个键可以有多个累加器。如果有两个或者更多的分区都有对应同一个键的累加器，就需要使用用户提供的 mergeCombiners()方法将各个分区的结果进行合并。</td><td align="left"><code>scala&gt; val scores = Array((&quot;Fred&quot;, 88), (&quot;Fred&quot;, 95), (&quot;Fred&quot;, 91), (&quot;Wilma&quot;, 93), (&quot;Wilma&quot;, 95), (&quot;Wilma&quot;, 98))</code> <code>scores: Array[(String, Int)] = Array((Fred,88), (Fred,95), (Fred,91), (Wilma,93), (Wilma,95), (Wilma,98))</code><br> <code></code> <code>scala&gt; val input = sc.parallelize(scores)</code> <code>input: org.apache.spark.rdd.RDD[(String, Int)] = ParallelCollectionRDD[52] at parallelize at &lt;console&gt;:26</code><br> <code></code> <code>scala&gt; val combine = input.combineByKey(</code> `</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、转换操作&quot;&gt;&lt;a href=&quot;#一、转换操作&quot; class=&quot;headerlink&quot; title=&quot;一、转换操作&quot;&gt;&lt;/a&gt;一、转换操作&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;函数&lt;/th&gt;
+&lt;th align=&quot;
+      
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://www.codedog.fun/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="Spark" scheme="http://www.codedog.fun/tags/Spark/"/>
+    
+  </entry>
   
   <entry>
     <title>SparkSQL中RDD和DataFrame和DataSet的转换</title>

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Spark,">
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="正在努力追赶同龄人的codedog">
-<meta name="keywords" content="程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangzichen的个人博客">
-<meta property="og:url" content="http://www.codedog.fun/archives/index.html">
+<meta name="description" content="一、转换操作   函数 解释 案例    def map[U:ClassTag](f:T =&amp;gt; U):RDD[U] 将函数应用于RDD的每一个元素，并返回一个新的RDD val rdd=sc.makeRDD(Array(1,2,3,4,5))     rdd.map((_,1)).collect   def filter(f:T =&amp;gt; Boolean):RDD[T] 通过提供的产生bo">
+<meta name="keywords" content="Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RDD的认知">
+<meta property="og:url" content="http://www.codedog.fun/2019/08/11/RDD的认知/index.html">
 <meta property="og:site_name" content="wangzichen的个人博客">
-<meta property="og:description" content="正在努力追赶同龄人的codedog">
+<meta property="og:description" content="一、转换操作   函数 解释 案例    def map[U:ClassTag](f:T =&amp;gt; U):RDD[U] 将函数应用于RDD的每一个元素，并返回一个新的RDD val rdd=sc.makeRDD(Array(1,2,3,4,5))     rdd.map((_,1)).collect   def filter(f:T =&amp;gt; Boolean):RDD[T] 通过提供的产生bo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-11T07:02:43.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangzichen的个人博客">
-<meta name="twitter:description" content="正在努力追赶同龄人的codedog">
+<meta name="twitter:title" content="RDD的认知">
+<meta name="twitter:description" content="一、转换操作   函数 解释 案例    def map[U:ClassTag](f:T =&amp;gt; U):RDD[U] 将函数应用于RDD的每一个元素，并返回一个新的RDD val rdd=sc.makeRDD(Array(1,2,3,4,5))     rdd.map((_,1)).collect   def filter(f:T =&amp;gt; Boolean):RDD[T] 通过提供的产生bo">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codedog.fun/archives/">
+  <link rel="canonical" href="http://www.codedog.fun/2019/08/11/RDD的认知/">
 
 
 
 
 
-  <title>归档 | wangzichen的个人博客</title>
+  <title>RDD的认知 | wangzichen的个人博客</title>
   
 
 
@@ -157,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/wangzichenking" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,212 +304,344 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/08/11/RDD的认知/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WangZiChen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/delisha.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangzichen的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">RDD的认知</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T10:45:19+08:00">
+                2019-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/11/RDD的认知/" itemprop="url">
+          
+          
+            <span id="/2019/08/11/RDD的认知/" class="leancloud_visitors" data-flag-title="RDD的认知">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
               
-                <span itemprop="name">RDD的认知</span>
+                <span class="post-meta-item-text">热度&#58;</span>
               
-            </a>
-        
-      </h2>
+                <span class="leancloud-visitors-count"></span>次
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-11T10:45:19+08:00" content="2019-08-11">
-          08-11
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  962字
+                </span>
+              
 
+              
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/RDD、DF、DS/" itemprop="url">
-              
-                <span itemprop="name">SparkSQL中RDD和DataFrame和DataSet的转换</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T07:41:09+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/05/Git问题/" itemprop="url">
-              
-                <span itemprop="name">Git——The requested URL returned error 403</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-05T15:27:44+08:00" content="2019-08-05">
-          08-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="一、转换操作"><a href="#一、转换操作" class="headerlink" title="一、转换操作"></a>一、转换操作</h2><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">解释</th>
+<th align="left">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>def map[U:ClassTag](f:T =&gt; U):RDD[U]</code></td>
+<td align="left">将函数应用于RDD的每一个元素，并返回一个新的RDD</td>
+<td align="left">val rdd=sc.makeRDD(Array(1,2,3,4,5))   <br>  rdd.map((_,1)).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def filter(f:T =&gt; Boolean):RDD[T]</code></td>
+<td align="left">通过提供的产生boolean条件的表达式来返回符合结果为True的新的RDD</td>
+<td align="left">val rdd=sc.makeRDD(Array(“aa1”,”aa2”,”bb1”,”bb2”)) <br>   rdd.filter(_.startsWith(“aa”)).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def flatMap[U: ClassTag](f: T =&gt; TraversableOnce[U]): RDD[U]</code></td>
+<td align="left">将函数应用于RDD中的每一项，对于每一项都产生一个集合，并将集合中的元素压扁成一个集合</td>
+<td align="left">val rdd=makeRDD(1 to 3) <br>       rdd.flatMap((1 to _)).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def mapPartitions[U:ClassTag](f:Iterator[T] =&gt;Iterator[U],preservesPartitioning:Boolean=false): RDD[U]</code></td>
+<td align="left">将函数应用于RDD的每一个分区，每一个分区运行一次，函数需要能够接受Iterator类型，然后返回Iterator</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def mapPartitionsWithIndex[U:ClassTag](f:(Int,Iterator[T])=&gt;Iterator[U],preservesPartitioning:Boolean =false):RDD[U]</code></td>
+<td align="left">将函数应用于RDD中的每一个分区，每一个分区运行一次，函数能够接受 一个分区的索引值 和一个代表分区内所有数据的Iterator类型，需要返回Iterator类型</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def sample(withReplacement: Boolean,fraction:Double,seed:Long=Utils.random.nextLong): RDD[T]</code></td>
+<td align="left">在RDD中以seed为种子返回大致上有fraction比例个数据样本RDD，withReplacement表示是否采用放回式抽样</td>
+<td align="left">val sample=sc.makeRDD(1 to 100)    <br> sample.sample(false,0.1,4).collect   <br> sample.sample(true,0.1,4).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def union(other:RDD[T]):RDD[T]</code></td>
+<td align="left">将两个RDD中的元素进行合并，返回一个新的RDD</td>
+<td align="left">val a=sc.makeRDD(1 to 10)   <br>                       sc.makeRDD(5 to 15).union(a).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def intersection(other:RDD[T]):RDD[T]</code></td>
+<td align="left">将两个RDD做交集，返回一个新的RDD</td>
+<td align="left">val a=sc.makeRDD(1 to 10)   <br> val b=sc.makeRDD(5 to 15)    <br> a.intersection(b).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def distinct():RDD[T]</code></td>
+<td align="left">将当前RDD进行去重后，返回一个新的RDD</td>
+<td align="left">val dis=sc.makeRDD(List(1,2,3,4,5,2,3,4,1,6,4)） <br>  dis.distinct.collect</td>
+</tr>
+<tr>
+<td align="left"><code>def partitionBy(partitioner:Partitioner):RDD[(K,V)]</code></td>
+<td align="left">根据设置的分区器重新将RDD进行分区，返回新的RDD</td>
+<td align="left">val par=sc.makeRDD(List((1,”a”),(2,”b”),(3,”c”)),4） <br>  par.partitionBy(new org.apache.spark.HashPatitioner(2))</td>
+</tr>
+<tr>
+<td align="left"><code>def reduceByKey(func:(V,V)=&gt;V):RDD[(K,V)]</code></td>
+<td align="left">根据Key值将相同Key的元组的值用func进行计算，返回新的RDD</td>
+<td align="left">val rdd = sc.parallelize(Array(1,2,3,1,2))   <br> rdd.map((<em>,1))   res0.reduceByKey(</em>+_)</td>
+</tr>
+<tr>
+<td align="left"><code>def groupByKey():RDD[(K,Iterable[V])]</code></td>
+<td align="left">将相同Key的值进行聚集，输出一个(K, Iterable[V])类型的RDD</td>
+<td align="left">val words=Array(“one”,”one”,”two”,”three”,”three”,”three”) <br>  val wordPair=sc.parallelize(words).map((_,1)) <br>   val group=wordPair.groupByKey()   <br>  val map=group.map(t=&gt;(t._1,t._2.sum))</td>
+</tr>
+<tr>
+<td align="left"><code>def combineByKey[C](createCombiner:V=&gt;C,mergeValue:(C,V)=&gt; C,mergeCombiners:(C,C)=&gt;C,numPartitions:Int):RDD[(K,C)]</code></td>
+<td align="left">对相同K，把V合并成一个集合.<br>createCombiner: combineByKey()会遍历分区中的所有元素，因此每个元素的键要么还没有遇到过，要么就和之前的某个元素的键相同。如果这是一个新的元素,combineByKey()会使用一个叫作 createCombiner() 的函数来创建那个键对应的累加器的初始值<br>mergeValue:如果这是一个在处理当前分区之前已经遇到的键,它会使用 mergeValue()方法将该键的累加器对应的当前值与这个新的值进行合并<br>mergeCombiners:由于每个分区都是独立处理的，因此对于同一个键可以有多个累加器。如果有两个或者更多的分区都有对应同一个键的累加器，就需要使用用户提供的 mergeCombiners()方法将各个分区的结果进行合并。</td>
+<td align="left"><code>scala&gt; val scores = Array((&quot;Fred&quot;, 88), (&quot;Fred&quot;, 95), (&quot;Fred&quot;, 91), (&quot;Wilma&quot;, 93), (&quot;Wilma&quot;, 95), (&quot;Wilma&quot;, 98))</code> <code>scores: Array[(String, Int)] = Array((Fred,88), (Fred,95), (Fred,91), (Wilma,93), (Wilma,95), (Wilma,98))</code><br> <code></code> <code>scala&gt; val input = sc.parallelize(scores)</code> <code>input: org.apache.spark.rdd.RDD[(String, Int)] = ParallelCollectionRDD[52] at parallelize at &lt;console&gt;:26</code><br> <code></code> <code>scala&gt; val combine = input.combineByKey(</code> `</td>
+</tr>
+</tbody></table>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/05/Spark安装/" itemprop="url">
-              
-                <span itemprop="name">Spark安装</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-05T07:08:18+08:00" content="2019-08-05">
-          08-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/04/Spark初识/" itemprop="url">
-              
-                <span itemprop="name">Spark初识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-04T22:42:17+08:00" content="2019-08-04">
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+      <div>
+      
+        
+      
+      </div>
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作😀!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WX.jpg" alt="WangZiChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ZFB.jpg" alt="WangZiChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    WangZiChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.codedog.fun/2019/08/11/RDD的认知/" title="RDD的认知">http://www.codedog.fun/2019/08/11/RDD的认知/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/RDD、DF、DS/" rel="next" title="SparkSQL中RDD和DataFrame和DataSet的转换">
+                <i class="fa fa-chevron-left"></i> SparkSQL中RDD和DataFrame和DataSet的转换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -516,6 +649,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTc0Ni8yMjI1Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -536,8 +678,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +783,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、转换操作"><span class="nav-number">1.</span> <span class="nav-text">一、转换操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -803,6 +970,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -831,6 +1002,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
