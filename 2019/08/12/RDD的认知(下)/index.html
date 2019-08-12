@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Spark,">
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="正在努力追赶同龄人的codedog">
-<meta name="keywords" content="程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的分类">
-<meta property="og:url" content="http://www.codedog.fun/categories/index.html">
+<meta name="description" content="一、转换操作(续)   函数 解释 示例    def aggregateByKey[U:ClassTag](zeroValue:U,partitioner:Partitioner)(seqOp:(U,V)=&amp;gt;U,combOp:(U,U)=&amp;gt;U):RDD[(K,U)] 通过seqOp函数将每一个分区里面的数据和初始值迭代带入函数返回最终值，comOp将每一个分区返回的最终值根据key进">
+<meta name="keywords" content="Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RDD认知(下)">
+<meta property="og:url" content="http://www.codedog.fun/2019/08/12/RDD的认知(下)/index.html">
 <meta property="og:site_name" content="wangzichen的个人博客">
-<meta property="og:description" content="正在努力追赶同龄人的codedog">
+<meta property="og:description" content="一、转换操作(续)   函数 解释 示例    def aggregateByKey[U:ClassTag](zeroValue:U,partitioner:Partitioner)(seqOp:(U,V)=&amp;gt;U,combOp:(U,U)=&amp;gt;U):RDD[(K,U)] 通过seqOp函数将每一个分区里面的数据和初始值迭代带入函数返回最终值，comOp将每一个分区返回的最终值根据key进">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-02T01:15:36.026Z">
+<meta property="og:updated_time" content="2019-08-12T02:43:46.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的分类">
-<meta name="twitter:description" content="正在努力追赶同龄人的codedog">
+<meta name="twitter:title" content="RDD认知(下)">
+<meta name="twitter:description" content="一、转换操作(续)   函数 解释 示例    def aggregateByKey[U:ClassTag](zeroValue:U,partitioner:Partitioner)(seqOp:(U,V)=&amp;gt;U,combOp:(U,U)=&amp;gt;U):RDD[(K,U)] 通过seqOp函数将每一个分区里面的数据和初始值迭代带入函数返回最终值，comOp将每一个分区返回的最终值根据key进">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codedog.fun/categories/">
+  <link rel="canonical" href="http://www.codedog.fun/2019/08/12/RDD的认知(下)/">
 
 
 
 
 
-  <title>我的分类 | wangzichen的个人博客</title>
+  <title>RDD认知(下) | wangzichen的个人博客</title>
   
 
 
@@ -306,40 +306,420 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/08/12/RDD的认知(下)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WangZiChen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/delisha.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangzichen的个人博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">我的分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 3 个分类
+          <h1 class="post-title" itemprop="name headline">RDD认知(下)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T07:16:57+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+            <span id="/2019/08/12/RDD的认知(下)/" class="leancloud_visitors" data-flag-title="RDD认知(下)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度&#58;</span>
+              
+                <span class="leancloud-visitors-count"></span>次
+            </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Bug/">Bug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识点/">知识点</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="一、转换操作-续"><a href="#一、转换操作-续" class="headerlink" title="一、转换操作(续)"></a>一、转换操作(续)</h2><table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">解释</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>def aggregateByKey[U:ClassTag](zeroValue:U,partitioner:Partitioner)(seqOp:(U,V)=&gt;U,combOp:(U,U)=&gt;U):RDD[(K,U)]</code></td>
+<td align="left">通过seqOp函数将每一个分区里面的数据和初始值迭代带入函数返回最终值，comOp将每一个分区返回的最终值根据key进行合并操作</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def foldByKey(zeroValue:V,partitioner:Partitioner)(func:(V,V)=&gt;V):RDD[(K,V)]</code></td>
+<td align="left">aggregateByKey的简化操作，seqop和combop相同</td>
+<td align="left">val rdd = sc.parallelize(List((1,3),(1,2),(1,4),(2,3),(3,6),(3,8)),3)<br>val agg = rdd.foldByKey(0)(<em>+</em>).collect</td>
+</tr>
+<tr>
+<td align="left"><code>def sortByKey(ascending:Boolean=true,numPartitions:Int=self.partitions.length):RDD[(K,V)]</code></td>
+<td align="left">在一个(K,V)的RDD上调用，K必须实现Ordered接口，返回一个按照key进行排序的(K,V)的RDD</td>
+<td align="left">val rdd = sc.parallelize(Array((3,”aa”),(6,”cc”),(2,”bb”),(1,”dd”))) <br> rdd.sortByKey(true).collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def sortBy[K](f:(T)=&gt;K,ascending:Boolean=true,numPartitions:Int = this.partitions.length)(implicit ord:Ordering[K],ctag:ClassTag[K]):RDD[T]</code></td>
+<td align="left">底层实现还是使用sortByKey，只不过使用fun生成的新key进行排序</td>
+<td align="left">val rdd = sc.parallelize(List(1,2,3,4))<br> rdd.sortBy(x =&gt; x%3).collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def join[W](other:RDD[(K,W)],partitioner:Partitioner):RDD[(K,(V,W))]</code></td>
+<td align="left">在类型为(K,V)和(K,W)的RDD上调用，返回一个相同key对应的所有元素对在一起的(K,(V,W))的RDD</td>
+<td align="left">val rdd1= sc.parallelize(Array((1,”a”),(2,”b”),(3,”c”))))<br> val rdd2 = sc.parallelize(Array((1,4),(2,5),(3,6)))<br> rdd1.join(rdd2).collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def cogroup[W](other:RDD[(K,W)],partitioner:Partitioner):RDD[(K,(Iterable[V], Iterable[W]))]</code></td>
+<td align="left">在类型为(K,V)和(K,W)的RDD上调用，返回一个(K,(Iterable<v>,Iterable<w>))类型的RDD</w></v></td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def cartesian[U:ClassTag](other:RDD[U]):RDD[(T,U)]</code></td>
+<td align="left">笛卡尔积</td>
+<td align="left">val rdd1 = sc.parallelize(1 to 3)<br> val rdd2 = sc.parallelize(2 to 5)<br> rdd1.cartesian(rdd2).collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def pipe(command:String):RDD[String]</code></td>
+<td align="left">对于每个分区，都执行一个perl或者shell脚本，返回输出的RDD</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def coalesce(numPartitions:Int,shuffle:Boolean=false,partitionCoalescer: Option[PartitionCoalescer]=Option.empty)(implicit ord:Ordering[T]=null):RDD[T]</code></td>
+<td align="left">缩减分区数，用于大数据集过滤后，提高小数据集的执行效率</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def repartition(numPartitions:Int)(implicit ord:Ordering[T]=null):RDD[T]</code></td>
+<td align="left">根据分区数,重新通过网络随机洗牌所有数据</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def repartitionAndSortWithinPartitions(partitioner:Partitioner):RDD[(K,V)]</code></td>
+<td align="left">repartitionAndSortWithinPartitions函数是repartition函数的变种，与repartition函数不同的是，repartitionAndSortWithinPartitions在给定的partitioner内部进行排序，性能比repartition要高</td>
+<td align="left">略</td>
+</tr>
+<tr>
+<td align="left"><code>def glom():RDD[Array[T]]</code></td>
+<td align="left">将每一个分区形成一个数组，形成新的RDD类型时RDD[Array[T]]</td>
+<td align="left">val rdd = sc.parallelize(1 to 16,4)<br> rdd.glom().collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def mapValues[U](f:V=&gt;U):RDD[(K,U)]</code></td>
+<td align="left">针对于(K,V)形式的类型只对V进行操作</td>
+<td align="left">val rdd3 = sc.parallelize(Array((1,”a”),(1,”d”),(2,”b”),(3,”c”)))<br> rdd3.mapValues(_+”|||”).collect()</td>
+</tr>
+<tr>
+<td align="left"><code>def subtract(other:RDD[T]):RDD[T]</code></td>
+<td align="left">计算差的一种函数去除两个RDD中相同的元素，不同的RDD将保留下来</td>
+<td align="left">val rdd = sc.parallelize(3 to 8) <br>val rdd1 = sc.parallelize(1 to 5) <br>rdd.subtract(rdd1).collect()</td>
+</tr>
+</tbody></table>
+<h2 id="二、行动操作"><a href="#二、行动操作" class="headerlink" title="二、行动操作"></a>二、行动操作</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>def takeSample(withReplacement:Boolean,num:Int,seed:Long=Utils.random.nextLong):Array[T]</code></td>
+<td>返回一个数组，该数组由从数据集中随机采样的num个元素组成，可以选择是否用随机数替换不足的部分，seed用于指定随机数生成器种子</td>
+<td>val rdd=sc.parallelize(1 to 10,2)<br>rdd.takeSample(true,5,3)</td>
+</tr>
+<tr>
+<td><code>def reduce(f:(T,T)=&gt;T):T</code></td>
+<td>通过func函数聚集RDD中的所有元素，这个功能必须是可交换且可并联的</td>
+<td>val rdd1 = sc.makeRDD(1 to 10,2)<br> rdd1.reduce(<em>+</em>)</td>
+</tr>
+<tr>
+<td><code>def collect():Array[T]</code></td>
+<td>在驱动程序中，以数组的形式返回数据集的所有元素</td>
+<td>太常用，略</td>
+</tr>
+<tr>
+<td><code>def count():Long</code></td>
+<td>返回RDD的元素个数</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def first():T</code></td>
+<td>返回RDD的第一个元素（类似于take(1))</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def take(num:Int):Array[T]</code></td>
+<td>返回一个由数据集的前n个元素组成的数组</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def takeOrdered(num:Int)(implicit ord:Ordering[T])</code></td>
+<td>返回前几个的排序</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def aggregate[U:ClassTag](zeroValue:U)(seqOp:(U,T)=&gt;U,combOp:(U,U)=&gt;U):U</code></td>
+<td>aggregate函数将每个分区里面的元素通过seqOp和初始值进行聚合，然后用combine函数将每个分区的结果和初始值(zeroValue)进行combine操作。这个函数最终返回的类型不需要和RDD中元素类型一致</td>
+<td>scala&gt; var rdd1 = sc.makeRDD(1 to 10,2)<br> scala&gt;rdd1.aggregate(1){(x : Int,y : Int) =&gt; x + y}, {(a : Int,b : Int) =&gt; a + b})</td>
+</tr>
+<tr>
+<td><code>def fold(zeroValue:T)(op:(T,T)=&gt;T):T</code></td>
+<td>折叠操作，aggregate的简化操作，seqop和combop一样</td>
+<td>var rdd1 = sc.makeRDD(1 to 4,2)<br> rdd1.fold(1)(<em>+</em>)</td>
+</tr>
+<tr>
+<td><code>def saveAsTextFile(path:String):Unit</code></td>
+<td>将数据集的元素以textfile的形式保存到HDFS文件系统或者其他支持的文件系统，对于每个元素，Spark将会调用toString方法，将它装换为文件中的文本</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def saveAsObjectFile(path:String):Unit</code></td>
+<td>用于将RDD中的元素序列化成对象，存储到文件中</td>
+<td>略</td>
+</tr>
+<tr>
+<td><code>def countByKey():Map[K,Long]</code></td>
+<td>针对(K,V)类型的RDD，返回一个(K,Int)的map，表示每一个key对应的元素个数</td>
+<td>val rdd = sc.parallelize(List((1,3),(1,2),(1,4),(2,3),(3,6),(3,8)),3)<br>rdd.countByKey()</td>
+</tr>
+<tr>
+<td><code>def foreach(f:T=&gt;Unit):Unit</code></td>
+<td>在数据集的每一个元素上，运行函数func进行更新</td>
+<td>var rdd = sc.makeRDD(1 to 10,2)<br> var sum = sc.accumulator(0)<br> rdd.foreach(sum+=_)</td>
+</tr>
+</tbody></table>
+<h3 id="注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java-io-Serializable接口，或者可以将属性赋值为本地变量来防止整个对象的传输"><a href="#注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java-io-Serializable接口，或者可以将属性赋值为本地变量来防止整个对象的传输" class="headerlink" title="注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java.io.Serializable接口，或者可以将属性赋值为本地变量来防止整个对象的传输 "></a><font color="red"><strong>注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java.io.</strong>Serializable<strong>接口，或者可以将属性赋值为本地变量来防止整个对象的传输</strong> </font></h3>
       
     </div>
     
     
     
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+      <div>
+      
+        
+      
+      </div>
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作😀!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WX.jpg" alt="WangZiChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ZFB.jpg" alt="WangZiChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    WangZiChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.codedog.fun/2019/08/12/RDD的认知(下)/" title="RDD认知(下)">http://www.codedog.fun/2019/08/12/RDD的认知(下)/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/11/RDD的认知(上)/" rel="next" title="RDD的认知（上）">
+                <i class="fa fa-chevron-left"></i> RDD的认知（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -377,8 +757,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -473,6 +862,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、转换操作-续"><span class="nav-number">1.</span> <span class="nav-text">一、转换操作(续)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、行动操作"><span class="nav-number">2.</span> <span class="nav-text">二、行动操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java-io-Serializable接口，或者可以将属性赋值为本地变量来防止整个对象的传输"><span class="nav-number">2.1.</span> <span class="nav-text">注意：当在RDD中使用到了class的方法或者属性的时候，该class需要继承java.io.Serializable接口，或者可以将属性赋值为本地变量来防止整个对象的传输 </span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

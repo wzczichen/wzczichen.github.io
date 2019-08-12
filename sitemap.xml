@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.codedog.fun/2019/08/11/RDD%E7%9A%84%E8%AE%A4%E7%9F%A5/</loc>
+    <loc>http://www.codedog.fun/2019/08/12/RDD%E7%9A%84%E8%AE%A4%E7%9F%A5(%E4%B8%8B)/</loc>
     
-    <lastmod>2019-08-11T07:02:43.450Z</lastmod>
+    <lastmod>2019-08-12T02:43:46.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.codedog.fun/2019/08/11/RDD%E7%9A%84%E8%AE%A4%E7%9F%A5(%E4%B8%8A)/</loc>
+    
+    <lastmod>2019-08-11T23:52:04.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.codedog.fun/2019/08/10/RDD%E3%80%81DF%E3%80%81DS/</loc>
+    
+    <lastmod>2019-08-11T23:16:36.223Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://www.codedog.fun/favourite/index.html</loc>
     
     <lastmod>2019-08-11T02:46:24.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.codedog.fun/2019/08/10/RDD%E3%80%81DF%E3%80%81DS/</loc>
-    
-    <lastmod>2019-08-10T00:06:57.122Z</lastmod>
     
   </url>
   

@@ -1,4 +1,5 @@
-http://www.codedog.fun/2019/08/11/RDD的认知/
+http://www.codedog.fun/2019/08/12/RDD的认知(下)/
+http://www.codedog.fun/2019/08/11/RDD的认知(上)/
 http://www.codedog.fun/2019/08/10/RDD、DF、DS/
 http://www.codedog.fun/2019/08/05/Git问题/
 http://www.codedog.fun/2019/08/05/Spark安装/
