@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-08-12T02:43:46.337Z</updated>
+  <updated>2019-08-16T00:10:38.589Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDEA导入项目报错non-managed pom.xml file found</title>
+    <link href="http://www.codedog.fun/2019/08/16/IDEA-bug/"/>
+    <id>http://www.codedog.fun/2019/08/16/IDEA-bug/</id>
+    <published>2019-08-16T00:04:26.000Z</published>
+    <updated>2019-08-16T00:10:38.589Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一步：点击右侧的maven视图"><a href="#第一步：点击右侧的maven视图" class="headerlink" title="第一步：点击右侧的maven视图"></a>第一步：点击右侧的maven视图</h2><image src="/images/20180822160605830.png"><h2 id="第二步：选择需要添加的pox-xml文件"><a href="#第二步：选择需要添加的pox-xml文件" class="headerlink" title="第二步：选择需要添加的pox.xml文件"></a>第二步：选择需要添加的pox.xml文件</h2><image src="/images/20180822161016696.png"><h2 id="第三步：选择项目运行需要的SDK"><a href="#第三步：选择项目运行需要的SDK" class="headerlink" title="第三步：选择项目运行需要的SDK"></a>第三步：选择项目运行需要的SDK</h2><image src="/images/20180822161413925.png"><h4 id="OVER"><a href="#OVER" class="headerlink" title="OVER"></a><font colot="red">OVER</font></h4></image></image></image>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;第一步：点击右侧的maven视图&quot;&gt;&lt;a href=&quot;#第一步：点击右侧的maven视图&quot; class=&quot;headerlink&quot; title=&quot;第一步：点击右侧的maven视图&quot;&gt;&lt;/a&gt;第一步：点击右侧的maven视图&lt;/h2&gt;&lt;image src=&quot;/imag
+      
+    
+    </summary>
+    
+      <category term="Bug" scheme="http://www.codedog.fun/categories/Bug/"/>
+    
+    
+      <category term="IDEA" scheme="http://www.codedog.fun/tags/IDEA/"/>
+    
+  </entry>
   
   <entry>
     <title>RDD认知(下)</title>
