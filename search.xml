@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[Docker安装及问题"net/http:TLS handshake timeout"]]></title>
     <url>%2F2019%2F09%2F01%2FDocker%E8%BF%9E%E6%8E%A5%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[一、安装Docker步骤： 123456789101112131415161718192021//******需要root权限******//1.检查内核版本，必须是3.10及以上使用命令 uname -r2.安装dockeryum install docker3.安装过程中需要确认，输入y即可4.启动dockersystemctl start docker查看版本docker -vDocker version 1.13.1, build 7f2769b/1.13.15.设置开机启动dockersystemctl enable dockerCreated symlink from /etc/systemd/system/multi‐user.target.wants/docker.service to/usr/lib/systemd/system/docker.service. 6.停止dockersystemctl stop docker 二、Docker常见命令及操作1）、镜像操作 操作 命令 说明 检索 docker search 关键字 例：docker search redis 去docker hub检索镜像的详细信息，如镜像的Tag 拉取 docker pull 镜像名:tag 例：docker pull redis 其中:tag是可选的，tag表示标签，是软件的版本，不设置默认是latest 列表 docker images 查看所有本地镜像 删除 docker rmi image-id 删除指定的本地镜像 https://hub.docker.com/ 2）、容器操作软件镜像（类似于lol客户端）—–运行镜像—-产生了一个容器（lol正在运行） 步骤： 12345678910111213141516171819202122232425262728291、搜索镜像docker search tomcat2、拉取镜像docker pull tomcat3、根据镜像启动容器docker run ‐‐name mytomcat ‐d tomcat:latest4、查看运行中的容器docker ps5.停止运行中的容器docker stop id6.查看所有的容器docker ps -a7.启动容器docker start id8.删除一个容器docker rm id9.启动一个有端口映射的tomcatdocker run -d -p 8888:8080 mytomcat//-d：后台运行//-p：将主机的端口映射到容器的一个端口 主机端口：容器内部的端口10.关闭linux的防火墙service firewall status //查看防火墙的状态service firewall stop //关闭防火墙11.查看容器的日志docker logs id/***更多命令参考文档https://docs.docker.com/engine/reference/commandline/docker/*/ 注意点： 当docker search 关键字后，准备docker pull 关键字时，命令行会出现“net/http: TLS handshake timeout”，这是由于docker默认镜像拉取地址为国外仓库，下载速度慢，我们只需要将拉取地址修改为国内镜像仓库即可（可使用阿里云提供的加速服务） 阿里云容器镜像服务 首先会让你登录账号，一步步来，之后左侧栏底部有镜像加速器，点进去可以看到类似于https://xxxxxx.mirror.aliyuncs.com的加速器地址，xxxxx每个人的都不一样，将它先复制，打开安装docker的虚拟机或者主机。 123456789//1.输入命令vi /etc/docker/daemon.json//2.按照如下修改&#123; "registry-mirrors": ["https://xxxxxx.mirror.aliyuncs.com"]&#125;//3.重启docker服务 docker删除镜像文件时，出现image is referenced in multiple repositories如何解决? ​ 我们可以发现这两个都是redis，只是版本号不同，IMAGE ID两个都一样，因此无法删除。 ​ 但是可以用repository和tag的方式来删除 121.docker rmi docker.io/redis //先根据repository删除一个2.docker rmi f7302e4ab3a8 //再用id删除一个]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[IDEA导入项目报错non-managed pom.xml file found]]></title>
