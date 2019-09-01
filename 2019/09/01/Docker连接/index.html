@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Spark,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="RDD ——&amp;gt;DF/DS  ——DF: 12345678910//第一种rdd.map&amp;#123;  x=&amp;gt;val pa = x.split(&amp;quot;,&amp;quot;);(pa(0).trim,pa(1).trim)&amp;#125;.toDF(&amp;quot;name&amp;quot;,&amp;quot;age&amp;quot;)//-------------------------------------">
-<meta name="keywords" content="Spark">
+<meta name="description" content="正在努力追赶同龄人的codedog">
+<meta name="keywords" content="程序猿">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SparkSQL中RDD和DataFrame和DataSet的转换">
-<meta property="og:url" content="http://www.codedog.fun/2019/08/10/RDD、DF、DS/index.html">
+<meta property="og:title" content="wangzichen的个人博客">
+<meta property="og:url" content="http://www.codedog.fun/2019/09/01/Docker连接/index.html">
 <meta property="og:site_name" content="wangzichen的个人博客">
-<meta property="og:description" content="RDD ——&amp;gt;DF/DS  ——DF: 12345678910//第一种rdd.map&amp;#123;  x=&amp;gt;val pa = x.split(&amp;quot;,&amp;quot;);(pa(0).trim,pa(1).trim)&amp;#125;.toDF(&amp;quot;name&amp;quot;,&amp;quot;age&amp;quot;)//-------------------------------------">
+<meta property="og:description" content="正在努力追赶同龄人的codedog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-11T23:16:36.223Z">
+<meta property="og:updated_time" content="2019-09-01T06:59:19.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SparkSQL中RDD和DataFrame和DataSet的转换">
-<meta name="twitter:description" content="RDD ——&amp;gt;DF/DS  ——DF: 12345678910//第一种rdd.map&amp;#123;  x=&amp;gt;val pa = x.split(&amp;quot;,&amp;quot;);(pa(0).trim,pa(1).trim)&amp;#125;.toDF(&amp;quot;name&amp;quot;,&amp;quot;age&amp;quot;)//-------------------------------------">
+<meta name="twitter:title" content="wangzichen的个人博客">
+<meta name="twitter:description" content="正在努力追赶同龄人的codedog">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codedog.fun/2019/08/10/RDD、DF、DS/">
+  <link rel="canonical" href="http://www.codedog.fun/2019/09/01/Docker连接/">
 
 
 
 
 
-  <title>SparkSQL中RDD和DataFrame和DataSet的转换 | wangzichen的个人博客</title>
+  <title> | wangzichen的个人博客</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/08/10/RDD、DF、DS/">
+    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/09/01/Docker连接/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WangZiChen">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SparkSQL中RDD和DataFrame和DataSet的转换</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T07:41:09+08:00">
-                2019-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T14:59:19+08:00">
+                2019-09-01
               </time>
             
 
@@ -358,28 +358,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">知识点</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -387,7 +365,7 @@
 
           
           
-            <span id="/2019/08/10/RDD、DF、DS/" class="leancloud_visitors" data-flag-title="SparkSQL中RDD和DataFrame和DataSet的转换">
+            <span id="/2019/09/01/Docker连接/" class="leancloud_visitors" data-flag-title>
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -412,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  141字
+                  0字
                 </span>
               
 
@@ -449,32 +427,7 @@
       
 
       
-        <ul>
-<li><p>RDD ——&gt;DF/DS</p>
-<ul>
-<li><p>——DF:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//第一种</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa = x.split(&quot;,&quot;);(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDF(&quot;name&quot;,&quot;age&quot;)</span><br><span class="line">//-------------------------------------------------------</span><br><span class="line">//第二种</span><br><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDF</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>——DS:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">rdd.map&#123;</span><br><span class="line">  x=&gt;val pa=x.split(&quot;,&quot;);People(pa(0).trim,pa(1).trim)</span><br><span class="line">&#125;.toDS</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>DF——RDD/DF</p>
-<ul>
-<li>——RDD:    <font color="red">DF.rdd获取值，编译器不校验类型</font></li>
-<li>——DS: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">case class People(name:String,age:Integer)</span><br><span class="line">DF.as[People]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>DS——RDD/DF</p>
-<ul>
-<li>——RDD:  <font color="red">DS.rdd获取值，编译器校验类型</font></li>
-<li>——DF:   <font color="red">DS.toDF即可</font></li>
-</ul>
-</li>
-</ul>
-
+        
       
     </div>
     
@@ -536,7 +489,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.codedog.fun/2019/08/10/RDD、DF、DS/" title="SparkSQL中RDD和DataFrame和DataSet的转换">http://www.codedog.fun/2019/08/10/RDD、DF、DS/</a>
+    <a href="http://www.codedog.fun/2019/09/01/Docker连接/" title>http://www.codedog.fun/2019/09/01/Docker连接/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -549,12 +502,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Spark/" rel="tag"># Spark</a>
-          
-        </div>
-      
 
       
       
@@ -564,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/05/Git问题/" rel="next" title="Git——The requested URL returned error 403">
-                <i class="fa fa-chevron-left"></i> Git——The requested URL returned error 403
+              <a href="/2019/08/16/IDEA-bug/" rel="next" title="IDEA导入项目报错non-managed pom.xml file found">
+                <i class="fa fa-chevron-left"></i> IDEA导入项目报错non-managed pom.xml file found
               </a>
             
           </div>
@@ -573,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/11/RDD的认知(上)/" rel="prev" title="RDD的认知（上）">
-                RDD的认知（上） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
