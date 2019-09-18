@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-09-17T03:46:11.955Z</updated>
+  <updated>2019-09-18T12:02:50.424Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hadoop+hbase启动出现的问题</title>
+    <link href="http://www.codedog.fun/2019/09/18/hadoop-hbase%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.codedog.fun/2019/09/18/hadoop-hbase的问题/</id>
+    <published>2019-09-18T11:33:18.000Z</published>
+    <updated>2019-09-18T12:02:50.424Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-集群描述：三台虚拟机搭建"><a href="#1-集群描述：三台虚拟机搭建" class="headerlink" title="1.集群描述：三台虚拟机搭建"></a>1.集群描述：三台虚拟机搭建</h2><table><thead><tr><th align="center">hadoop101</th><th align="center">hadoop102</th><th align="center">hadoop103</th></tr></thead><tbody><tr><td align="center">Datanode</td><td align="center">Datanode</td><td align="center">Datanode</td></tr><tr><td align="center">Namenode</td><td align="center">QuorumPeerMain</td><td align="center">QuorumPeerMain</td></tr><tr><td align="center">QuorumPeerMain</td><td align="center">NodeManager</td><td align="center">NodeManager</td></tr><tr><td align="center">NodeManager</td><td align="center">ResourceManager</td><td align="center">SecondaryNameNode</td></tr><tr><td align="center">HRegionServer</td><td align="center">HRegionServer</td><td align="center">HRegionServer</td></tr><tr><td align="center">HMaster</td><td align="center">Jps</td><td align="center">Jps</td></tr><tr><td align="center">Jps</td><td align="center"></td><td align="center"></td></tr></tbody></table><h2 id="2-问题的过程"><a href="#2-问题的过程" class="headerlink" title="2.问题的过程"></a>2.问题的过程</h2><p>首先，Hadoop101作为三台虚拟机中的最重要的，平时安装时都十分小心，Hadoop102和Hadoop103由于有一次VMware关机时卡死，直接通过ctrl+shift+delete强制结束进程，导致Hadoop102的文件损坏，于是我克隆了Hadoop103，再把ip等一些配置重新配置了一下（<font color="red">最主要的是zookeeper的data/zkData/myid（这个位置是自己定义的dataDir的地址），以及kafka的conf/server.properties里的broker.id=#，每个虚拟机都不相同</font>）。在我运行如下的shell脚本，一键启动后</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo "=================正在开启集群服务==================="</span><br><span class="line"></span><br><span class="line">echo "================正在开启zookeeper服务=================="</span><br><span class="line">for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103</span><br><span class="line">do</span><br><span class="line">        ssh $i '/opt/modules/zookeeper-3.4.10/bin/zkServer.sh start'</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo "=============正在开启NameNode节点============="</span><br><span class="line">ssh wangzichen@hadoop101 '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start namenode'</span><br><span class="line"></span><br><span class="line">echo "=============正在开启DataNode节点============="</span><br><span class="line">for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103</span><br><span class="line">do</span><br><span class="line">ssh $i '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start datanode'</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo "=============正在开启SecondaryNameNode节点============="</span><br><span class="line">ssh wangzichen@hadoop103 '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start secondarynamenode'</span><br><span class="line"></span><br><span class="line">echo "==========正在开启ResourceManager节点=========="</span><br><span class="line">ssh wangzichen@hadoop102 '/opt/modules/hadoop-2.7.2/sbin/yarn-daemon.sh start resourcemanager'</span><br><span class="line"></span><br><span class="line">echo "==============正在开启NodeManager=============="</span><br><span class="line">for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103</span><br><span class="line">do</span><br><span class="line">        ssh $i '/opt/modules/hadoop-2.7.2/sbin/yarn-daemon.sh start nodemanager'</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> echo "============正在开启JobHistoryServer============"</span><br><span class="line"><span class="meta">#</span> ssh wangzichen@hadoop101 '/opt/modules/hadoop-2.7.2/sbin/mr-jobhistory-daemon.sh start historyserver'</span><br><span class="line"></span><br><span class="line">echo "============正在开启Hbase节点============"</span><br><span class="line">ssh wangzichen@hadoop101 '/opt/modules/hbase-1.2.0/bin/start-hbase.sh'</span><br></pre></td></tr></table></figure><p>出现了两个问题：</p><ul><li>HMaster出现一会儿就消失，其他都正常</li><li>HMaster正常，Hadoop102或者Hadoop103的DataNode其中一个过会儿会消失</li></ul><p>摸索了一个下午，终于解决了，只是不清楚为什么会好了，以下是我改的部分。</p><h4 id="1-我改了hbase安装目录下的conf-hbase-env-sh的export-HBASE-MANAGES-ZK-false，将其开头的-去除"><a href="#1-我改了hbase安装目录下的conf-hbase-env-sh的export-HBASE-MANAGES-ZK-false，将其开头的-去除" class="headerlink" title="1.我改了hbase安装目录下的conf/hbase-env.sh的export HBASE_MANAGES_ZK=false，将其开头的#去除"></a>1.我改了hbase安装目录下的conf/hbase-env.sh的export HBASE_MANAGES_ZK=false，将其开头的#去除</h4><h4 id="2-我发现hbase安装目录下的conf-hbase-site-xml的zookeeper的dataDir地址填错了"><a href="#2-我发现hbase安装目录下的conf-hbase-site-xml的zookeeper的dataDir地址填错了" class="headerlink" title="2.我发现hbase安装目录下的conf/hbase-site.xml的zookeeper的dataDir地址填错了"></a>2.我发现hbase安装目录下的conf/hbase-site.xml的zookeeper的dataDir地址填错了</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.property.dataDir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/modules/zookeeper-3.4.10/data/zkData<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-集群描述：三台虚拟机搭建&quot;&gt;&lt;a href=&quot;#1-集群描述：三台虚拟机搭建&quot; class=&quot;headerlink&quot; title=&quot;1.集群描述：三台虚拟机搭建&quot;&gt;&lt;/a&gt;1.集群描述：三台虚拟机搭建&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th 
+      
+    
+    </summary>
+    
+      <category term="Bug" scheme="http://www.codedog.fun/categories/Bug/"/>
+    
+    
+      <category term="hadoop" scheme="http://www.codedog.fun/tags/hadoop/"/>
+    
+      <category term="hbase" scheme="http://www.codedog.fun/tags/hbase/"/>
+    
+  </entry>
   
   <entry>
     <title>hadoop集群启动脚本全</title>
