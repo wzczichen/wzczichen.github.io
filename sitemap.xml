@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.codedog.fun/about/index.html</loc>
+    
+    <lastmod>2019-09-23T07:23:09.802Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.codedog.fun/2019/09/18/hadoop-hbase%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2019-09-18T12:02:50.424Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://www.codedog.fun/categories/index.html</loc>
     
     <lastmod>2019-08-02T01:15:36.026Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.codedog.fun/about/index.html</loc>
-    
-    <lastmod>2019-08-02T00:26:50.890Z</lastmod>
     
   </url>
   
