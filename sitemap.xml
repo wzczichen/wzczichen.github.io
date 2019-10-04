@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.codedog.fun/favourite/index.html</loc>
+    
+    <lastmod>2019-10-04T06:36:55.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.codedog.fun/2019/10/04/Vmware/</loc>
+    
+    <lastmod>2019-10-04T06:25:43.931Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.codedog.fun/about/index.html</loc>
     
     <lastmod>2019-09-23T07:25:25.145Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>http://www.codedog.fun/2019/08/10/RDD%E3%80%81DF%E3%80%81DS/</loc>
     
     <lastmod>2019-08-11T23:16:36.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.codedog.fun/favourite/index.html</loc>
-    
-    <lastmod>2019-08-11T02:46:24.429Z</lastmod>
     
   </url>
   

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Win10更新到1903后,出现Vmware workstation pro无法打开]]></title>
+    <url>%2F2019%2F10%2F04%2FVmware%2F</url>
+    <content type="text"><![CDATA[时间：2019年10月份 在这个更新后，我的vmware workstation pro无法打开，提示需要安装最新版本，然而又不能打开检查更新，只能卸载再安装了15.5的版本。 问题：安装了之后无法ping和上网说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和www.baidu.com。第一步：切换为root权限，查看/etc/sysconfig/network-scripts/ifcfg-enoXXXX，看看是否有误! 第二步：查看服务，关于vmware的服务是否都已经启动第三步：打开windows的网络连接，查看 第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。 第五步：查看网络适配器 测试：ping主机和baidu.com 成功！]]></content>
+      <categories>
+        <category>Bug</category>
+      </categories>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hadoop+hbase启动出现的问题]]></title>
     <url>%2F2019%2F09%2F18%2Fhadoop-hbase%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[1.集群描述：三台虚拟机搭建 hadoop101 hadoop102 hadoop103 Datanode Datanode Datanode Namenode QuorumPeerMain QuorumPeerMain QuorumPeerMain NodeManager NodeManager NodeManager ResourceManager SecondaryNameNode HRegionServer HRegionServer HRegionServer HMaster Jps Jps Jps 2.问题的过程首先，Hadoop101作为三台虚拟机中的最重要的，平时安装时都十分小心，Hadoop102和Hadoop103由于有一次VMware关机时卡死，直接通过ctrl+shift+delete强制结束进程，导致Hadoop102的文件损坏，于是我克隆了Hadoop103，再把ip等一些配置重新配置了一下（最主要的是zookeeper的data/zkData/myid（这个位置是自己定义的dataDir的地址），以及kafka的conf/server.properties里的broker.id=#，每个虚拟机都不相同）。在我运行如下的shell脚本，一键启动后 1234567891011121314151617181920212223242526272829303132333435#!/bin/bashecho "=================正在开启集群服务==================="echo "================正在开启zookeeper服务=================="for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103do ssh $i '/opt/modules/zookeeper-3.4.10/bin/zkServer.sh start'doneecho "=============正在开启NameNode节点============="ssh wangzichen@hadoop101 '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start namenode'echo "=============正在开启DataNode节点============="for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103do ssh $i '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start datanode'doneecho "=============正在开启SecondaryNameNode节点============="ssh wangzichen@hadoop103 '/opt/modules/hadoop-2.7.2/sbin/hadoop-daemon.sh start secondarynamenode'echo "==========正在开启ResourceManager节点=========="ssh wangzichen@hadoop102 '/opt/modules/hadoop-2.7.2/sbin/yarn-daemon.sh start resourcemanager'echo "==============正在开启NodeManager=============="for i in wangzichen@hadoop101 wangzichen@hadoop102 wangzichen@hadoop103do ssh $i '/opt/modules/hadoop-2.7.2/sbin/yarn-daemon.sh start nodemanager'done# echo "============正在开启JobHistoryServer============"# ssh wangzichen@hadoop101 '/opt/modules/hadoop-2.7.2/sbin/mr-jobhistory-daemon.sh start historyserver'echo "============正在开启Hbase节点============"ssh wangzichen@hadoop101 '/opt/modules/hbase-1.2.0/bin/start-hbase.sh' 出现了两个问题： HMaster出现一会儿就消失，其他都正常 HMaster正常，Hadoop102或者Hadoop103的DataNode其中一个过会儿会消失 摸索了一个下午，终于解决了，只是不清楚为什么会好了，以下是我改的部分。 1.我改了hbase安装目录下的conf/hbase-env.sh的export HBASE_MANAGES_ZK=false，将其开头的#去除2.我发现hbase安装目录下的conf/hbase-site.xml的zookeeper的dataDir地址填错了1234&lt;property&gt; &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt; &lt;value&gt;/opt/modules/zookeeper-3.4.10/data/zkData&lt;/value&gt;&lt;/property&gt;]]></content>

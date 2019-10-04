@@ -1,3 +1,4 @@
+http://www.codedog.fun/2019/10/04/Vmware/
 http://www.codedog.fun/2019/09/18/hadoop-hbase的问题/
 http://www.codedog.fun/2019/09/17/集群脚本/
 http://www.codedog.fun/2019/09/01/Docker连接/

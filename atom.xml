@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-09-18T12:02:50.424Z</updated>
+  <updated>2019-10-04T06:25:43.931Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Win10更新到1903后,出现Vmware workstation pro无法打开</title>
+    <link href="http://www.codedog.fun/2019/10/04/Vmware/"/>
+    <id>http://www.codedog.fun/2019/10/04/Vmware/</id>
+    <published>2019-10-04T05:59:36.000Z</published>
+    <updated>2019-10-04T06:25:43.931Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="时间：2019年10月份"><a href="#时间：2019年10月份" class="headerlink" title="时间：2019年10月份"></a>时间：2019年10月份</h2><img src="/images/1570168924710.png"><p>在这个更新后，我的vmware workstation pro无法打开，提示需要安装最新版本，然而又不能打开检查更新，只能卸载再安装了15.5的版本。</p><h2 id="问题：安装了之后无法ping和上网"><a href="#问题：安装了之后无法ping和上网" class="headerlink" title="问题：安装了之后无法ping和上网"></a>问题：安装了之后无法ping和上网</h2><h3 id="说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和www-baidu-com。"><a href="#说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和www-baidu-com。" class="headerlink" title="说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和www.baidu.com。"></a>说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和<a href="http://www.baidu.com。" target="_blank" rel="noopener">www.baidu.com。</a></h3><h4 id="第一步：切换为root权限，查看-etc-sysconfig-network-scripts-ifcfg-enoXXXX，看看是否有误"><a href="#第一步：切换为root权限，查看-etc-sysconfig-network-scripts-ifcfg-enoXXXX，看看是否有误" class="headerlink" title="第一步：切换为root权限，查看/etc/sysconfig/network-scripts/ifcfg-enoXXXX，看看是否有误!"></a>第一步：切换为root权限，查看/etc/sysconfig/network-scripts/ifcfg-enoXXXX，看看是否有误!</h4><img src="/images/1570169357880.png"><h4 id="第二步：查看服务，关于vmware的服务是否都已经启动"><a href="#第二步：查看服务，关于vmware的服务是否都已经启动" class="headerlink" title="第二步：查看服务，关于vmware的服务是否都已经启动"></a>第二步：查看服务，关于vmware的服务是否都已经启动</h4><h4 id="第三步：打开windows的网络连接，查看"><a href="#第三步：打开windows的网络连接，查看" class="headerlink" title="第三步：打开windows的网络连接，查看"></a>第三步：打开windows的网络连接，查看</h4><img src="/images/1570169444515.png"><h4 id="第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。"><a href="#第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。" class="headerlink" title="第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。"></a>第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。</h4><img src="/images/1570169644773.png"><h4 id="第五步：查看网络适配器"><a href="#第五步：查看网络适配器" class="headerlink" title="第五步：查看网络适配器"></a>第五步：查看网络适配器</h4><img src="/images/1570169700360.png"><h2 id="测试：ping主机和baidu-com-成功！"><a href="#测试：ping主机和baidu-com-成功！" class="headerlink" title="测试：ping主机和baidu.com 成功！"></a>测试：ping主机和baidu.com 成功！</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;时间：2019年10月份&quot;&gt;&lt;a href=&quot;#时间：2019年10月份&quot; class=&quot;headerlink&quot; title=&quot;时间：2019年10月份&quot;&gt;&lt;/a&gt;时间：2019年10月份&lt;/h2&gt;&lt;img src=&quot;/images/1570168924710.p
+      
+    
+    </summary>
+    
+      <category term="Bug" scheme="http://www.codedog.fun/categories/Bug/"/>
+    
+    
+      <category term="vmware" scheme="http://www.codedog.fun/tags/vmware/"/>
+    
+  </entry>
   
   <entry>
     <title>hadoop+hbase启动出现的问题</title>
