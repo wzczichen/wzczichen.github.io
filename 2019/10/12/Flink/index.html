@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Flink,">
 
 
 
@@ -88,17 +88,21 @@
 
 
 
-<meta name="description" content="正在努力追赶同龄人的codedog">
-<meta name="keywords" content="程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangzichen的个人博客">
-<meta property="og:url" content="http://www.codedog.fun/archives/2019/page/2/index.html">
+<meta name="description" content="FlinkSpark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐 特点：事件驱动型以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间">
+<meta name="keywords" content="Flink">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flink(基础)">
+<meta property="og:url" content="http://www.codedog.fun/2019/10/12/Flink/index.html">
 <meta property="og:site_name" content="wangzichen的个人博客">
-<meta property="og:description" content="正在努力追赶同龄人的codedog">
+<meta property="og:description" content="FlinkSpark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐 特点：事件驱动型以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.codedog.fun/images/1570846439840.png">
+<meta property="og:image" content="http://www.codedog.fun/images/1570848135987.png">
+<meta property="og:updated_time" content="2019-10-12T06:30:56.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangzichen的个人博客">
-<meta name="twitter:description" content="正在努力追赶同龄人的codedog">
+<meta name="twitter:title" content="Flink(基础)">
+<meta name="twitter:description" content="FlinkSpark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐 特点：事件驱动型以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间">
+<meta name="twitter:image" content="http://www.codedog.fun/images/1570846439840.png">
 
 
 
@@ -128,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codedog.fun/archives/2019/page/2/">
+  <link rel="canonical" href="http://www.codedog.fun/2019/10/12/Flink/">
 
 
 
 
 
-  <title>归档 | wangzichen的个人博客</title>
+  <title>Flink(基础) | wangzichen的个人博客</title>
   
 
 
@@ -157,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/wangzichenking" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,111 +307,307 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/10/12/Flink/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WangZiChen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/delisha.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangzichen的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/05/Spark安装/" itemprop="url">
-              
-                <span itemprop="name">Spark安装</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Flink(基础)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-05T07:08:18+08:00" content="2019-08-05">
-          08-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T14:25:42+08:00">
+                2019-10-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+            <span id="/2019/10/12/Flink/" class="leancloud_visitors" data-flag-title="Flink(基础)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度&#58;</span>
+              
+                <span class="leancloud-visitors-count"></span>次
+            </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/04/Spark初识/" itemprop="url">
-              
-                <span itemprop="name">Spark初识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-04T22:42:17+08:00" content="2019-08-04">
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h2 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h2><p>Spark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐</p>
+<h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><h5 id="事件驱动型"><a href="#事件驱动型" class="headerlink" title="事件驱动型"></a>事件驱动型</h5><p>以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间为单位而不是以事件为单位的，区别：对数据更加敏感。会减少数据的延迟性。</p>
+<h5 id="流和批的世界观"><a href="#流和批的世界观" class="headerlink" title="流和批的世界观"></a>流和批的世界观</h5><p><strong>批处理</strong>的特点是有界、持久、大量，非常适合需要访问全套记录才能完成的计算工作，一般用于离线统计。</p>
+<p><strong>流处理</strong>的特点是无界、实时,  无需针对整个数据集执行操作，而是对通过系统传输的每个数据项执行操作，一般用于实时统计。</p>
+<h5 id="分层Api"><a href="#分层Api" class="headerlink" title="分层Api"></a>分层Api</h5><ul>
+<li><p>spark也分层，比如RDD操作这是一层，还有一层SQL，本质来说都是RDD的，转义到SQL</p>
+<img src="/images/1570846439840.png">
+
+</li>
+</ul>
+<p>DataStream 实时的，DataSet 离线的，处于中间层，灵活。类似于map，filter，reduceByKey等等，和Spark的算子很像。</p>
+<p>高级层有SQL和Table Api，TableApi像.select().where().groupBy()，好处是代码简介，利于读懂，偏向业务逻辑</p>
+<p>低级层</p>
+<h5 id="有状态计算"><a href="#有状态计算" class="headerlink" title="有状态计算"></a>有状态计算</h5><p>spark也有有状态计算，类似于updatastatebykey，把状态存在checkpoint里。</p>
+<p>flink也有状态的维护，一般存在redis里，也可以存在checkpoint里。但是说到底checkpoint只是个机制，检查点机制，checkpoint存在哪儿是可以选择的，可以放在磁盘和内存中和HDFS中</p>
+<p>Flink state两种</p>
+<p>operator state:操作状态，整个的数据流在每一个算子中计算，计算完成还是没完成会把这个状态存起来，为了后续的提交操作。相当于存的执行的情况</p>
+<p>Keyed state:以key为单位，存的值就是state。相当于存的业务的数据</p>
+<ul>
+<li>无状态计算会观察每个独立的事件，并且会在最后一个时间出结果，例如一些报警和监控，一直观察每个事件，当触发警报的事件来临就会触发警告。</li>
+<li>有状态的计算就会基于多个事件来输出结果，比如说计算过去一个小时的平均温度等等。</li>
+</ul>
+<h5 id="支持Exactly-once语义"><a href="#支持Exactly-once语义" class="headerlink" title="支持Exactly-once语义"></a>支持Exactly-once语义</h5><p>希望有且只执行一次，数据处理最佳的状态</p>
+<ul>
+<li>At Most once:最多一条或者没有，这种情况会造成数据丢失</li>
+<li>At Least once:最少一次，一旦我觉得发送失败了，就再发送一次，可是我觉得发送失败了，不一定就真的发送失败了，有误判，会造成数据的重复</li>
+<li>Exactly-once:如果我发送成功了，不会再发，如果没成功，一定会再发</li>
+</ul>
+<p>spark官方达不到Exactly-once的状态</p>
+<img src="/images/1570848135987.png">
+
+<p>spark可以人为的操作来实现Exactly-once状态。数据一进来就提交，中间处理失败了，kafka不会认为处理失败了，这件事已经过去了，已经处理成功了，可以在末尾提交，需要人为的把提交的操作摞到某一个业务点，确认处理完成后提交，即调整kafka的偏移量offset，如偏移量放在zookeeper，需要自己去调整zookeeper</p>
+<p>Flink自己帮你完成了，每个操作都有自己的状态</p>
+<h5 id="支持事件事件（Eventtime）"><a href="#支持事件事件（Eventtime）" class="headerlink" title="支持事件事件（Eventtime）"></a>支持事件事件（Eventtime）</h5><p>目前大多数框架时间窗口计算，都是采用当前系统时间，以时间为单位进行的聚合计算只能反应数据到达计算引擎的时间，而并不是实际业务时间</p>
+<ul>
+<li>例如，spark的开窗函数，开一个window，取最近一小时，指数据流到spark的一小时，不管数据是什么时候产生的不关心，只以数据进入spark为准</li>
+</ul>
+
+      
     </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+      <div>
+      
+        
+      
+      </div>
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作😀!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WX.jpg" alt="WangZiChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ZFB.jpg" alt="WangZiChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    WangZiChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.codedog.fun/2019/10/12/Flink/" title="Flink(基础)">http://www.codedog.fun/2019/10/12/Flink/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Flink/" rel="tag"># Flink</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/04/Vmware/" rel="next" title="Win10更新到1903后,出现Vmware workstation pro无法打开">
+                <i class="fa fa-chevron-left"></i> Win10更新到1903后,出现Vmware workstation pro无法打开
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -415,6 +615,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTc0Ni8yMjI1Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -435,8 +644,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,6 +749,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flink"><span class="nav-number">1.</span> <span class="nav-text">Flink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点："><span class="nav-number">1.1.</span> <span class="nav-text">特点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#事件驱动型"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">事件驱动型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#流和批的世界观"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">流和批的世界观</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分层Api"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">分层Api</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有状态计算"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">有状态计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#支持Exactly-once语义"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">支持Exactly-once语义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#支持事件事件（Eventtime）"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">支持事件事件（Eventtime）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -702,6 +936,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -730,6 +968,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

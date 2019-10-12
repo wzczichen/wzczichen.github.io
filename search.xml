@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Flink(基础)]]></title>
+    <url>%2F2019%2F10%2F12%2FFlink%2F</url>
+    <content type="text"><![CDATA[FlinkSpark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐 特点：事件驱动型以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间为单位而不是以事件为单位的，区别：对数据更加敏感。会减少数据的延迟性。 流和批的世界观批处理的特点是有界、持久、大量，非常适合需要访问全套记录才能完成的计算工作，一般用于离线统计。 流处理的特点是无界、实时, 无需针对整个数据集执行操作，而是对通过系统传输的每个数据项执行操作，一般用于实时统计。 分层Api spark也分层，比如RDD操作这是一层，还有一层SQL，本质来说都是RDD的，转义到SQL DataStream 实时的，DataSet 离线的，处于中间层，灵活。类似于map，filter，reduceByKey等等，和Spark的算子很像。 高级层有SQL和Table Api，TableApi像.select().where().groupBy()，好处是代码简介，利于读懂，偏向业务逻辑 低级层 有状态计算spark也有有状态计算，类似于updatastatebykey，把状态存在checkpoint里。 flink也有状态的维护，一般存在redis里，也可以存在checkpoint里。但是说到底checkpoint只是个机制，检查点机制，checkpoint存在哪儿是可以选择的，可以放在磁盘和内存中和HDFS中 Flink state两种 operator state:操作状态，整个的数据流在每一个算子中计算，计算完成还是没完成会把这个状态存起来，为了后续的提交操作。相当于存的执行的情况 Keyed state:以key为单位，存的值就是state。相当于存的业务的数据 无状态计算会观察每个独立的事件，并且会在最后一个时间出结果，例如一些报警和监控，一直观察每个事件，当触发警报的事件来临就会触发警告。 有状态的计算就会基于多个事件来输出结果，比如说计算过去一个小时的平均温度等等。 支持Exactly-once语义希望有且只执行一次，数据处理最佳的状态 At Most once:最多一条或者没有，这种情况会造成数据丢失 At Least once:最少一次，一旦我觉得发送失败了，就再发送一次，可是我觉得发送失败了，不一定就真的发送失败了，有误判，会造成数据的重复 Exactly-once:如果我发送成功了，不会再发，如果没成功，一定会再发 spark官方达不到Exactly-once的状态 spark可以人为的操作来实现Exactly-once状态。数据一进来就提交，中间处理失败了，kafka不会认为处理失败了，这件事已经过去了，已经处理成功了，可以在末尾提交，需要人为的把提交的操作摞到某一个业务点，确认处理完成后提交，即调整kafka的偏移量offset，如偏移量放在zookeeper，需要自己去调整zookeeper Flink自己帮你完成了，每个操作都有自己的状态 支持事件事件（Eventtime）目前大多数框架时间窗口计算，都是采用当前系统时间，以时间为单位进行的聚合计算只能反应数据到达计算引擎的时间，而并不是实际业务时间 例如，spark的开窗函数，开一个window，取最近一小时，指数据流到spark的一小时，不管数据是什么时候产生的不关心，只以数据进入spark为准]]></content>
+      <categories>
+        <category>知识点</category>
+      </categories>
+      <tags>
+        <tag>Flink</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Win10更新到1903后,出现Vmware workstation pro无法打开]]></title>
     <url>%2F2019%2F10%2F04%2FVmware%2F</url>
     <content type="text"><![CDATA[时间：2019年10月份 在这个更新后，我的vmware workstation pro无法打开，提示需要安装最新版本，然而又不能打开检查更新，只能卸载再安装了15.5的版本。 问题：安装了之后无法ping和上网说明：之前配过3台的虚拟机集群，所以安装完之后直接打开，可以通过ifconfig显示ip，各个虚拟机之间可以ping，而且ssh也可以。但是每个都无法ping主机和www.baidu.com。第一步：切换为root权限，查看/etc/sysconfig/network-scripts/ifcfg-enoXXXX，看看是否有误! 第二步：查看服务，关于vmware的服务是否都已经启动第三步：打开windows的网络连接，查看 第四步：打开vmware的编辑，打开虚拟机网络编辑器，查看VMnet8的子网地址的前三位是否和自己配置的静态ip的前三位相等，若是不相同，把Vmnet8的子网地址前三位改为和虚拟机ip前三位相同即可。 第五步：查看网络适配器 测试：ping主机和baidu.com 成功！]]></content>

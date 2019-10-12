@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-10-04T06:25:43.931Z</updated>
+  <updated>2019-10-12T06:30:56.349Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flink(基础)</title>
+    <link href="http://www.codedog.fun/2019/10/12/Flink/"/>
+    <id>http://www.codedog.fun/2019/10/12/Flink/</id>
+    <published>2019-10-12T06:25:42.000Z</published>
+    <updated>2019-10-12T06:30:56.349Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h2><p>Spark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达不到，还没有官方的支持，实时部分和Spark平起平坐</p><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><h5 id="事件驱动型"><a href="#事件驱动型" class="headerlink" title="事件驱动型"></a>事件驱动型</h5><p>以事件为单位的计算，一件事一件事的处理，kafka的通道里的单元，flume的channel里的event也是，SparkStreaming是微批次，数据进入spark的时候会定义一个批次的时间，是以时间为单位而不是以事件为单位的，区别：对数据更加敏感。会减少数据的延迟性。</p><h5 id="流和批的世界观"><a href="#流和批的世界观" class="headerlink" title="流和批的世界观"></a>流和批的世界观</h5><p><strong>批处理</strong>的特点是有界、持久、大量，非常适合需要访问全套记录才能完成的计算工作，一般用于离线统计。</p><p><strong>流处理</strong>的特点是无界、实时,  无需针对整个数据集执行操作，而是对通过系统传输的每个数据项执行操作，一般用于实时统计。</p><h5 id="分层Api"><a href="#分层Api" class="headerlink" title="分层Api"></a>分层Api</h5><ul><li><p>spark也分层，比如RDD操作这是一层，还有一层SQL，本质来说都是RDD的，转义到SQL</p><img src="/images/1570846439840.png"></li></ul><p>DataStream 实时的，DataSet 离线的，处于中间层，灵活。类似于map，filter，reduceByKey等等，和Spark的算子很像。</p><p>高级层有SQL和Table Api，TableApi像.select().where().groupBy()，好处是代码简介，利于读懂，偏向业务逻辑</p><p>低级层</p><h5 id="有状态计算"><a href="#有状态计算" class="headerlink" title="有状态计算"></a>有状态计算</h5><p>spark也有有状态计算，类似于updatastatebykey，把状态存在checkpoint里。</p><p>flink也有状态的维护，一般存在redis里，也可以存在checkpoint里。但是说到底checkpoint只是个机制，检查点机制，checkpoint存在哪儿是可以选择的，可以放在磁盘和内存中和HDFS中</p><p>Flink state两种</p><p>operator state:操作状态，整个的数据流在每一个算子中计算，计算完成还是没完成会把这个状态存起来，为了后续的提交操作。相当于存的执行的情况</p><p>Keyed state:以key为单位，存的值就是state。相当于存的业务的数据</p><ul><li>无状态计算会观察每个独立的事件，并且会在最后一个时间出结果，例如一些报警和监控，一直观察每个事件，当触发警报的事件来临就会触发警告。</li><li>有状态的计算就会基于多个事件来输出结果，比如说计算过去一个小时的平均温度等等。</li></ul><h5 id="支持Exactly-once语义"><a href="#支持Exactly-once语义" class="headerlink" title="支持Exactly-once语义"></a>支持Exactly-once语义</h5><p>希望有且只执行一次，数据处理最佳的状态</p><ul><li>At Most once:最多一条或者没有，这种情况会造成数据丢失</li><li>At Least once:最少一次，一旦我觉得发送失败了，就再发送一次，可是我觉得发送失败了，不一定就真的发送失败了，有误判，会造成数据的重复</li><li>Exactly-once:如果我发送成功了，不会再发，如果没成功，一定会再发</li></ul><p>spark官方达不到Exactly-once的状态</p><img src="/images/1570848135987.png"><p>spark可以人为的操作来实现Exactly-once状态。数据一进来就提交，中间处理失败了，kafka不会认为处理失败了，这件事已经过去了，已经处理成功了，可以在末尾提交，需要人为的把提交的操作摞到某一个业务点，确认处理完成后提交，即调整kafka的偏移量offset，如偏移量放在zookeeper，需要自己去调整zookeeper</p><p>Flink自己帮你完成了，每个操作都有自己的状态</p><h5 id="支持事件事件（Eventtime）"><a href="#支持事件事件（Eventtime）" class="headerlink" title="支持事件事件（Eventtime）"></a>支持事件事件（Eventtime）</h5><p>目前大多数框架时间窗口计算，都是采用当前系统时间，以时间为单位进行的聚合计算只能反应数据到达计算引擎的时间，而并不是实际业务时间</p><ul><li>例如，spark的开窗函数，开一个window，取最近一小时，指数据流到spark的一小时，不管数据是什么时候产生的不关心，只以数据进入spark为准</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Flink&quot;&gt;&lt;a href=&quot;#Flink&quot; class=&quot;headerlink&quot; title=&quot;Flink&quot;&gt;&lt;/a&gt;Flink&lt;/h2&gt;&lt;p&gt;Spark分实时部分和离线部分，Flink还是替代不了离线部分，Spark和Hive可以无缝整合，Flink暂时还达
+      
+    
+    </summary>
+    
+      <category term="知识点" scheme="http://www.codedog.fun/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+    
+      <category term="Flink" scheme="http://www.codedog.fun/tags/Flink/"/>
+    
+  </entry>
   
   <entry>
     <title>Win10更新到1903后,出现Vmware workstation pro无法打开</title>
