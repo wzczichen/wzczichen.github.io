@@ -1,3 +1,4 @@
+http://www.codedog.fun/2019/10/13/idea本地运行hadoop/
 http://www.codedog.fun/2019/10/12/Flink/
 http://www.codedog.fun/2019/10/04/Vmware/
 http://www.codedog.fun/2019/09/18/hadoop-hbase的问题/

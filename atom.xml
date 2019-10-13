@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2019-10-12T06:30:56.349Z</updated>
+  <updated>2019-10-13T07:13:40.626Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>idea项目运行时报错提示Could not locate executable null\bin\winutils.exe in the Hadoop binaries</title>
+    <link href="http://www.codedog.fun/2019/10/13/idea%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8Chadoop/"/>
+    <id>http://www.codedog.fun/2019/10/13/idea本地运行hadoop/</id>
+    <published>2019-10-13T07:07:53.000Z</published>
+    <updated>2019-10-13T07:13:40.626Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>首先需要在你的java项目中添加配置语句：<font color="red">System.setProperty(“hadoop.home.dir”,”hadoop解压后的路径”)</font>(前提是已经把解压好的winutils.exe放入解压路径下bin目录下)</p></li><li><p>配置hadoop的环境变量(HADOOP_HOME及在PATH中添加HADOOP_HOME)</p><p>附：hadoop2.7.X的winutils.exe链接</p><p><a href="https://pan.baidu.com/s/1EyL5q-po99lnDmYffA3KgQ" target="_blank" rel="noopener">winutils.exe</a></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先需要在你的java项目中添加配置语句：&lt;font color=&quot;red&quot;&gt;System.setProperty(“hadoop.home.dir”,”hadoop解压后的路径”)&lt;/font&gt;(前提是已经把解压好的winutils.exe放入解压路径下
+      
+    
+    </summary>
+    
+      <category term="Bug" scheme="http://www.codedog.fun/categories/Bug/"/>
+    
+    
+      <category term="IDEA" scheme="http://www.codedog.fun/tags/IDEA/"/>
+    
+      <category term="hadoop" scheme="http://www.codedog.fun/tags/hadoop/"/>
+    
+  </entry>
   
   <entry>
     <title>Flink(基础)</title>
