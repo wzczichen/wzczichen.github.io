@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Ceph,">
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="正在努力追赶同龄人的codedog">
-<meta name="keywords" content="程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wangzichen的个人博客">
-<meta property="og:url" content="http://www.codedog.fun/archives/2019/09/index.html">
+<meta name="description" content="Ceph组件RADOS（Reliable Autonomic Distributed Object Store）RADOS是Ceph 存储集群的基础。Ceph 中的一切都以对象的形式存储，而RADOS 就负责存储这些对象，而不考虑它们的数据类型。RADOS 层确保数据一致性和可靠性。对于数据一致性，它执行数据复制、故障检测和恢复。还包括数据在集群节点间的recovery。 OSD实际存储数据的进程">
+<meta name="keywords" content="Ceph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ceph组件">
+<meta property="og:url" content="http://www.codedog.fun/2019/12/15/Ceph组件/index.html">
 <meta property="og:site_name" content="wangzichen的个人博客">
-<meta property="og:description" content="正在努力追赶同龄人的codedog">
+<meta property="og:description" content="Ceph组件RADOS（Reliable Autonomic Distributed Object Store）RADOS是Ceph 存储集群的基础。Ceph 中的一切都以对象的形式存储，而RADOS 就负责存储这些对象，而不考虑它们的数据类型。RADOS 层确保数据一致性和可靠性。对于数据一致性，它执行数据复制、故障检测和恢复。还包括数据在集群节点间的recovery。 OSD实际存储数据的进程">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-15T06:03:53.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wangzichen的个人博客">
-<meta name="twitter:description" content="正在努力追赶同龄人的codedog">
+<meta name="twitter:title" content="Ceph组件">
+<meta name="twitter:description" content="Ceph组件RADOS（Reliable Autonomic Distributed Object Store）RADOS是Ceph 存储集群的基础。Ceph 中的一切都以对象的形式存储，而RADOS 就负责存储这些对象，而不考虑它们的数据类型。RADOS 层确保数据一致性和可靠性。对于数据一致性，它执行数据复制、故障检测和恢复。还包括数据在集群节点间的recovery。 OSD实际存储数据的进程">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.codedog.fun/archives/2019/09/">
+  <link rel="canonical" href="http://www.codedog.fun/2019/12/15/Ceph组件/">
 
 
 
 
 
-  <title>归档 | wangzichen的个人博客</title>
+  <title>Ceph组件 | wangzichen的个人博客</title>
   
 
 
@@ -157,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/wangzichenking" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,142 +304,337 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.codedog.fun/2019/12/15/Ceph组件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WangZiChen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/delisha.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangzichen的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Ceph组件</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-15T14:03:07+08:00">
+                2019-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 14 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/云计算/" itemprop="url" rel="index">
+                    <span itemprop="name">云计算</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/18/hadoop-hbase的问题/" itemprop="url">
+          
+          
+            <span id="/2019/12/15/Ceph组件/" class="leancloud_visitors" data-flag-title="Ceph组件">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
               
-                <span itemprop="name">hadoop+hbase启动出现的问题</span>
+                <span class="post-meta-item-text">热度&#58;</span>
               
-            </a>
-        
-      </h2>
+                <span class="leancloud-visitors-count"></span>次
+            </span>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-18T19:33:18+08:00" content="2019-09-18">
-          09-18
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.5k字
+                </span>
+              
 
+              
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/17/集群脚本/" itemprop="url">
-              
-                <span itemprop="name">hadoop集群启动脚本全</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-17T11:35:39+08:00" content="2019-09-17">
-          09-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/01/Docker连接/" itemprop="url">
-              
-                <span itemprop="name">Docker安装及问题"net/http:TLS handshake timeout"</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-01T14:20:29+08:00" content="2019-09-01">
-          09-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="Ceph组件"><a href="#Ceph组件" class="headerlink" title="Ceph组件"></a>Ceph组件</h2><h3 id="RADOS（Reliable-Autonomic-Distributed-Object-Store）"><a href="#RADOS（Reliable-Autonomic-Distributed-Object-Store）" class="headerlink" title="RADOS（Reliable Autonomic Distributed Object Store）"></a>RADOS（Reliable Autonomic Distributed Object Store）</h3><p>RADOS是Ceph 存储集群的基础。Ceph 中的一切都以对象的形式存储，而RADOS 就负责存储这些对象，而不考虑它们的数据类型。RADOS 层确保数据一致性和可靠性。对于数据一致性，它执行数据复制、故障检测和恢复。还包括数据在集群节点间的recovery。</p>
+<h3 id="OSD"><a href="#OSD" class="headerlink" title="OSD"></a>OSD</h3><p>实际存储数据的进程。通常一个OSD daemon绑定一个物理磁盘。Client write/read 数据最终都会走到OSD去执行write/read操作。</p>
+<h3 id="MON（monitor）"><a href="#MON（monitor）" class="headerlink" title="MON（monitor）"></a>MON（monitor）</h3><p>Monitor在Ceph集群中扮演者管理者的角色，维护了整个集群的状态，是Ceph集群中最重要的组件。</p>
+<p>Mon保证集群的相关组件在同一时刻能够达成一致，相当于集群的领导层，负责收集、更新和发布集群信息。为了规避单点故障，在实际的Ceph部署环境中会部署多个Mon，同样会引来多个Mon之前如何协同工作的问题。</p>
+<h3 id="LIbrados"><a href="#LIbrados" class="headerlink" title="LIbrados"></a>LIbrados</h3><p>简化访问RADOS的一种方法，目前支持PHP、Ruby、Java、Python、C和C++语言。它提供了Ceph 存储集群的一个本地接口RADOS ，并且是其他服务(如RBD 、RGW) 的基础，以及为CephFS 提供POSIX 接口。librados API 支持直接访问RADOS ，使得开发者能够创建自己的接口来访问Ceph 集群存储。</p>
+<h3 id="RBD"><a href="#RBD" class="headerlink" title="RBD"></a>RBD</h3><p>Ceph块设备。对外提供块存储。可以像磁盘一样被映射、格式化已经挂载到服务器上。支持snapshot。</p>
+<h3 id="RGW"><a href="#RGW" class="headerlink" title="RGW"></a>RGW</h3><p>Ceph对象网关，提供了一个兼容S3和Swift的restful API接口。RGW还支持多租户和Openstack的keyston身份验证服务。</p>
+<h3 id="CephFS"><a href="#CephFS" class="headerlink" title="CephFS"></a>CephFS</h3><p>提供了一个任意大小且兼容POSlX的分布式文件系统。CephFS 依赖Ceph MDS 来跟踪文件层次结构，即元数据。</p>
+<h3 id="MDS"><a href="#MDS" class="headerlink" title="MDS"></a>MDS</h3><p>Ceph元数据服务器，跟踪文件层次结构并存储只供CephFS使用的元数据。Ceph块设备和RADOS网关不需要元数据。MDS不直接给client提供数据服务。</p>
+<h3 id="Ceph-RADOS"><a href="#Ceph-RADOS" class="headerlink" title="Ceph RADOS"></a>Ceph RADOS</h3><p>RADOS 是Ceph 存储系统的核心，也称为Ceph 存储集群。Ceph 的所有优秀特性都是由RADOS 提供的，包括分布式对象存储、高可用性、高可靠性、没有单点故障、向我修复以及自我管理等。RADOS 层在Ceph 存储架构中扮演着举足轻重的角色。Ceph 的数据访问方法(如RBD 、CephFS 、RADOS GW 和librados ) 的所有操作都是在RADOS 层之上构建的。</p>
+<p>当Ceph 集群接收到来向客户端的写请求时，CRUSH 算法首先计算出存储位置，以此决定应该将数据写入什么地方。然后这些信息传递到队DOS 层进行进一步处理。基于CRUSH 规则集，RADOS 以小对象的形式将数据分发到集群内的所有节点。最后，将这些对象存储在OSD 中。</p>
+<p>当配置的复制数大于1时，队DOS 负责数据的可靠性。同时，它复制对象，创建副本，并将它们存储在不同的故障区域中，换言之，同一个对象的副本不会存放在同一个故障区域中。然而，如果有更多个性化需求和更高的可靠性，就需要根据实际需求和基础架构来优化CRUSH 规则集。RADOS 能够保证在一个RADOS 集群中的对象副本总是不少于一个，只要你有足够的设备。</p>
+<p>除了跨集群存储和复制对象之外，RADOS 也确保对象状态的一致性。在对象不一致的情况下，将会利用剩下的副本执行恢复操作。这个操作自动执行，对于用户而言是透明的，从而为Ceph 提供了自我管理和自我修复的能力。如果仔细分析Ceph 的架构图，你会发现它有两部分: RADOS 在最下部，它完全处于Ceph集群的内部，没有提供给客户端直接接口;另一部分就是在RADOS 之上的面向所有客户端的接口。</p>
+<h3 id="Ceph-对象存储设备"><a href="#Ceph-对象存储设备" class="headerlink" title="Ceph 对象存储设备"></a><strong>Ceph 对象存储设备</strong></h3><p>Ceph 的OSD 是Ceph 存储集群中最重要的一个基础组件，它负责将实际的数据以对象的形式存储在每一个集群节点的物理磁盘驱动器中。Ceph 集群中的大部分工作是由OSD 守护进程完成的。存储用户数据是真正最耗时的部分。</p>
+<p>Ceph OSD 以对象的形式存储所有客户端数据，并在客户端发起数据请求时提供相同的数据。Ceph 集群包含多个OSD 。对于任何读或写操作，客户端首先向monitor 请求集群的map ，然后，它们就可以无须monitor 的干预直接与OSD 进行I/O操作也正是因为产生数据的客户端能够直接写入存储数据的OSD 而没有任何额外的数据处理层，才使得数据事务处理速度如此之快。与其他存储解决方案相比，这种类型的数据存储和取回机制是Ceph 所独有的。</p>
+<p>Ceph 的核心特性(比如可靠性、自平衡、自恢复和一致性)都始于OSD 。根据配置的副本数， Ceph通过跨集群节点复制每个对象多次来提供可靠性，同时使其具有高可用性容错性。OSD 上的每个对象都有一个主副本和几个辅副本，辅副本分散在其他OSD 上。由于Ceph 是一个分布式系统且对象分布在多个OSD 上，因此每一个OSD 对于一些对象而言是主副本。但同时对于其他对象而言就是辅副本，存放辅副本的OSD 受主副本OSD 控制;然而，它们也可能又成为主副本OSD 。</p>
+<p>Ceph的OSD由一个已经存在Linux 文件系统的物理磁盘驱动器和10SD 服务组成。</p>
+<p>Linux文件系统对于OSD 守护进程而言是相当重要的，因为它决定了支持哪些扩展属性( XATTR) 。这些文件系统扩展属性能够为OSD 守护进程提供内部对象的状态、快照、元数据和ACL 等信息.这有助于数据管理。</p>
+<p>OSD在拥有有效Linux 分区的物理磁盘驱动器上进行操作。Linux 分区可以是Btrfs (B树文件系统)、XFS 或ext4。Ceph 集群的性能基准测试的主要标准之一就是文件系统的选择。</p>
+<ul>
+<li>Btrfs</li>
+</ul>
+<p>与使用XFS 和ext4 文件系统的OSD 相比，使用Btrfs 文件系统的OSD 能够提供更佳的性能。使用Btrfs 最主要的一个优点是支持写时复制和可写的快照，这对于虑拟机的部署和克隆非常有用。在文件系统中它还支持透明的压缩、普遍的校验和多设备的统一管理。还支持高效的XATTR 、对于小文件的合井，还有SSD上所熟知的集成卷管理，并支持在线fsck 的特性。然而，尽管有如此多的新特性，Btrfs 目前还不具备应用于生产系统的条件，但对于测试而言它是一个很好的选择。</p>
+<ul>
+<li>XFS</li>
+</ul>
+<p>这是一个可靠、成熟且非常稳定的文件系统，因此，我们推荐在生产环境的Ceph 集群中使用它。XFS 是Ceph存储中最常用的文件系统.也是推荐OSD 使用的文件系统。然而，从另一个方面来看，XFS 又不如Btrfs。XFS 在元数据扩展性上存在性能问题，XFS 也是一种日志文件系统， 也就是说.每次客户端发送数据以写入Ceph 集群时，肯先需要写人口志空间，然后再写入XFS 文件系统这样的两次写入操作增加了开销从而使得XFS 的性能不如Btrfs，Btrfs 没有使用日志。</p>
+<ul>
+<li>Ext4</li>
+</ul>
+<p>ext4 文件系统也是一种日志文件系统，是一个远合生产环境下Ceph OSD 使用的文件系统;然而，它的受欢迎程度不如XFS 。从性能的角度来看，ext4 文件系统也不如Btrfs。</p>
+<p>Ceph OSD 使用诸如Btrfs 和XFS 的日志文件系统。在将数据提交到备用存储之前，Ceph 首先将数据写入一个称为日志( journal) 的独立存储区域，日志是相同的机械磁盘(如OSD) 或不同的SSD 磁盘或分区上一小块缓冲区大小的分区，甚至也可以是文件系统上的一个文件。在这种机制中，Ceph 的所有写都是先到日志，然后再到备用存储.</p>
+<h3 id="Ceph-Monitor"><a href="#Ceph-Monitor" class="headerlink" title="Ceph Monitor"></a>Ceph Monitor</h3><p>顾名思义，Ceph monitor 负责监控整个集群的健康状况。它们以守护进程的形式存在，这些守护进程通过存储集群的关键信息来维护集群成员状态、对等节点状态，以及集群配置信息。Ceph monitor 通过维护整个集群状态的主副本来完成它的任务。集群map 包括monitor 、OSD 、PG 、CRUSH 和MDS map o 所有这些map 统称为集群map 。让我们简单地浏览一下每个map 的功能。</p>
+<ul>
+<li>Monitor Map</li>
+</ul>
+<p>它维护着monitor 节点间端到端的信息，其中包括Ceph 集群ID 、monitor 主机名、IP 地址及端口号。它还存储着当前map 的创建版本和最后一次修改的信息。可以通过下面的命令检查集群的monitor map:</p>
+<p># ceph mon dump</p>
+<ul>
+<li>OSD Map</li>
+</ul>
+<p>它存储着一些常见的信息，如集群ID、OSD map 创建版本和最后一次修改信息，以及与池相关的信息(如池名字、池ID 、类型、副本数和归置组) 。它还存储着OSD 的一些信息，如数目、状态、权重、最近处于clean 状态的间隔以及OSD 主机等信息。可以通过执行以下命令获取集群的OSD map:</p>
+<p># ceph osd dump</p>
+<ul>
+<li>PG Map</li>
+</ul>
+<p>它存储着归置组的版本、时间戳、最新的OSD map 版本、容量充满的比例以及容量接近充满的比例等信息。它同时也跟踪每个归置组的ID 、对象数、状态状态时间戳、OSD 的叩集合、OSD 的acting 集合，最后还有清洗等信息。要检查集群的PG map ，执行:</p>
+<p># ceph pg dump</p>
+<ul>
+<li>CRUSH Map</li>
+</ul>
+<p>它存储着集群的存储设备信息、故障域层次结构以及在故障域中定义如何存储数据的规则。要查看集群的CRUSH map ，执行:</p>
+<p># ceph osd crush dump</p>
+<ul>
+<li>MDS Map</li>
+</ul>
+<p>它存储着当前MDS map 的版本，map 的创建和修改时间，数据和元数据池的ID ，集群中MDS 的数目以及MDS 的状态。要查看集群MDS map ，执行:</p>
+<p># ceph mds dump</p>
+<p>一个典型的Ceph 集群通常包含多个monitor 节点。多monitor 的Ceph 架构使用了仲</p>
+<p>裁( quorum ) ，使用Paxos 算法为集群提供了分布式决策机制。集群中monitor 数目应该是奇数，最低要求是一个monitor 节点，推荐的数是3 。自monitor开始仲裁操作，至少需要保证一半以上的monitor 始终处于可用状态，这样才可以防止其他系统可以看到的脑裂问题。</p>
+<p>这就是为什么推荐使用奇数个monitor。在所有的集群monitor 巾，其中有一个是领导者( leader ) 。如果领导者monitor不可用其他monitor 节点也有权成为领导者。生产环境下的集群必须至少有三个monitor节点来提供高可用性。</p>
+<p>对于企业级生产环境，建议使用专门的monitor 节点。这样， 一旦你的OSD 节点发生</p>
+<p>故障，只要你有足够的monitor 运行在独立的机器上，你仍然可以连接到你的Ceph 集群。在存储的规划阶段，也应该考虑物理机架的布局。你应该将monitor节点分散到所有的故障域中，例如，不同的开关、电源和物理机架。如果你有多个数据中心连接在同一个高速网络，monitor 节点应该放到不同的数据中心。</p>
+<h3 id="Ceph块存储"><a href="#Ceph块存储" class="headerlink" title="Ceph块存储"></a>Ceph块存储</h3><p>块存储是企业环境中最常见的一种数据存储格式。Ceph 块设备也称为RADOS 块设备(RBD) ;它为物理层的虚拟机监控程序以及虚拟机提供块存储解决方案。Ceph 的RBD 驱动程序已经被集成到Linux 内核( 2.6.39 或更高版本)中，而且已经被QEMU/KVM 支持，它们能无缝地访问Ceph 块设备。</p>
+<p>Linux主机能全力支持内核RBD (KRB D ) 并通过librados 映射Ceph 块设备。然后RADOS将Ceph 块设备的对象以分布式模式存储在集群中。一旦Ceph 块设备映射到Linux主机，它也可以当作裸分区或标记为文件系统，然后进行挂载。</p>
+<h3 id="Ceph对象网关"><a href="#Ceph对象网关" class="headerlink" title="Ceph对象网关"></a>Ceph对象网关</h3><p>Ceph 对象网关，也称做RADOS 网关，它是一个代理，可以将HTTP 请求转换为RADOS ，同时也可以把RADOS 请求转换为HTTP 请求，从而提供RESTful 对象存储，这兼容S3 和Swift。Ceph 对象存储使用Ceph 对象网关守护进程( radosgw) 与librgw 、librados (Ceph 集群)交互。这是使用libfcgi 作为FastCGI的一个模块来实现的，并且可以被任何支持FastCGl的Web 服务器使用。</p>
+<h3 id="Ceph文件系统"><a href="#Ceph文件系统" class="headerlink" title="Ceph文件系统"></a>Ceph文件系统</h3><p>CephFS 在RADOS 层之上提供了一个兼容POSIX 的文件系统。它使用MDS 作为守护进程，负责管理其元数据并将它和其他数据分开，这有助于降低复杂性并提高可靠性。CephFS 继承了RADOS 的特性并为数据提供了动态再平衡。</p>
 
       
-
     </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+      <div>
+      
+        
+      
+      </div>
+    </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持将鼓励我继续创作😀!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WX.jpg" alt="WangZiChen 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ZFB.jpg" alt="WangZiChen 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    WangZiChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.codedog.fun/2019/12/15/Ceph组件/" title="Ceph组件">http://www.codedog.fun/2019/12/15/Ceph组件/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ceph/" rel="tag"># Ceph</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/13/idea本地运行hadoop/" rel="next" title="idea项目运行时报错提示Could not locate executable null\bin\winutils.exe in the Hadoop binaries">
+                <i class="fa fa-chevron-left"></i> idea项目运行时报错提示Could not locate executable null\bin\winutils.exe in the Hadoop binaries
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -446,6 +642,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTc0Ni8yMjI1Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -466,8 +671,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -562,6 +776,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ceph组件"><span class="nav-number">1.</span> <span class="nav-text">Ceph组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RADOS（Reliable-Autonomic-Distributed-Object-Store）"><span class="nav-number">1.1.</span> <span class="nav-text">RADOS（Reliable Autonomic Distributed Object Store）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSD"><span class="nav-number">1.2.</span> <span class="nav-text">OSD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MON（monitor）"><span class="nav-number">1.3.</span> <span class="nav-text">MON（monitor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIbrados"><span class="nav-number">1.4.</span> <span class="nav-text">LIbrados</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RBD"><span class="nav-number">1.5.</span> <span class="nav-text">RBD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RGW"><span class="nav-number">1.6.</span> <span class="nav-text">RGW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CephFS"><span class="nav-number">1.7.</span> <span class="nav-text">CephFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MDS"><span class="nav-number">1.8.</span> <span class="nav-text">MDS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph-RADOS"><span class="nav-number">1.9.</span> <span class="nav-text">Ceph RADOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph-对象存储设备"><span class="nav-number">1.10.</span> <span class="nav-text">Ceph 对象存储设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph-Monitor"><span class="nav-number">1.11.</span> <span class="nav-text">Ceph Monitor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph块存储"><span class="nav-number">1.12.</span> <span class="nav-text">Ceph块存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph对象网关"><span class="nav-number">1.13.</span> <span class="nav-text">Ceph对象网关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ceph文件系统"><span class="nav-number">1.14.</span> <span class="nav-text">Ceph文件系统</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -733,6 +963,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -761,6 +995,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
