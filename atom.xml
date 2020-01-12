@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2020-01-12T04:23:29.414Z</updated>
+  <updated>2020-01-12T03:40:59.711Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>1.11</title>
-    <link href="http://www.codedog.fun/2020/01/12/1-11/"/>
-    <id>http://www.codedog.fun/2020/01/12/1-11/</id>
-    <published>2020-01-12T04:23:06.000Z</published>
-    <updated>2020-01-12T04:23:29.414Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Hello"><a href="#Hello" class="headerlink" title="Hello"></a>Hello</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hello&quot;&gt;&lt;a href=&quot;#Hello&quot; class=&quot;headerlink&quot; title=&quot;Hello&quot;&gt;&lt;/a&gt;Hello&lt;/h2&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Bug" scheme="http://www.codedog.fun/tags/Bug/"/>
-    
-  </entry>
   
   <entry>
     <title>Ceph组件</title>
