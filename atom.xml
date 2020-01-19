@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2020-01-12T03:40:59.711Z</updated>
+  <updated>2020-01-19T01:38:12.379Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mininet+Ryu</title>
+    <link href="http://www.codedog.fun/2020/01/19/Mininet-Ryu/"/>
+    <id>http://www.codedog.fun/2020/01/19/Mininet-Ryu/</id>
+    <published>2020-01-19T01:19:25.000Z</published>
+    <updated>2020-01-19T01:38:12.379Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Mininet"><a href="#Mininet" class="headerlink" title="Mininet"></a>Mininet</h2><h3 id="Mininet是什么？"><a href="#Mininet是什么？" class="headerlink" title="Mininet是什么？"></a>Mininet是什么？</h3><img src="/images/1577176798215.png"><h3 id="Mininet可以做什么？"><a href="#Mininet可以做什么？" class="headerlink" title="Mininet可以做什么？"></a>Mininet可以做什么？</h3><img src="/images/1577176897098.png"><h3 id="Mininet文件结构"><a href="#Mininet文件结构" class="headerlink" title="Mininet文件结构"></a>Mininet文件结构</h3><img src="/images/1577179466545.png"><p>常用目录：custom/    util/    examples/</p><h3 id="Mininet常用命令图谱"><a href="#Mininet常用命令图谱" class="headerlink" title="Mininet常用命令图谱"></a>Mininet常用命令图谱</h3><img src="/images/1577238694488.png"><h3 id="网络构建参数"><a href="#网络构建参数" class="headerlink" title="网络构建参数"></a>网络构建参数</h3><h4 id="topo"><a href="#topo" class="headerlink" title="topo"></a>topo</h4><img src="/images/1577238755346.png"><img src="/images/1577239620965.png"><p>depth:交换机的深度（如图，交换机有两层，主机这一层是不包含在depth里的）</p><p>fanout:数值为2，代表s1的交换机下下挂2个交换机（广度）</p><h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><img src="/images/1577240044301.png"><h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4><img src="/images/1577240190012.png"><h4 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h4><img src="/images/1577240225698.png"><p><code>sudo mn --topo=tree,depth=2,fanout=2,--mac</code></p><h3 id="内部交互命令"><a href="#内部交互命令" class="headerlink" title="内部交互命令"></a>内部交互命令</h3><img src="/images/1577240389434.png"><img src="/images/1577240935589.png"><ul><li>添加一个主机    py net.addHost(‘h3’)</li><li>添加链路            py net.addLink(s1,net.get(‘h3’))</li><li>添加一个端口     py.attach(‘s1-eth3’)</li><li>添加新增主机的ip    py net.get(‘h3’).cmd(‘ifconfig h3-eth0 10.0.0.3’)</li></ul><h3 id="Mininet可视化"><a href="#Mininet可视化" class="headerlink" title="Mininet可视化"></a>Mininet可视化</h3><img src="/images/1577242000902.png"><h4 id="启动Miniedit"><a href="#启动Miniedit" class="headerlink" title="启动Miniedit"></a>启动Miniedit</h4><img src="/images/1577242070671.png"><h4 id="查看流表"><a href="#查看流表" class="headerlink" title="查看流表"></a>查看流表</h4><img src="/images/1577254238846.png"><h4 id="添加流表"><a href="#添加流表" class="headerlink" title="添加流表"></a>添加流表</h4><img src="/images/1577255644323.png"><h4 id="删除流表"><a href="#删除流表" class="headerlink" title="删除流表"></a>删除流表</h4><img src="/images/1577255697541.png"><h4 id="添加丢弃数据包的流表"><a href="#添加丢弃数据包的流表" class="headerlink" title="添加丢弃数据包的流表"></a>添加丢弃数据包的流表</h4><img src="/images/1577255789336.png"><ul><li>代码：mn –custom xxx.py –topo xxx –controller=remote,ip=127.0.0.1,port=6653</li></ul><p>问题：dpctl add-flow in_port=1,actions=drop执行了之后，为什么pingall还是可以？因为在执行之后，控制器下发的流表还存在，且优先权大于自己定义的流表，可以先dpctl del-flows之后再执行。</p><h3 id="模拟多数据中心带宽实验"><a href="#模拟多数据中心带宽实验" class="headerlink" title="模拟多数据中心带宽实验"></a>模拟多数据中心带宽实验</h3><h4 id="Mininet数据中心应用价值"><a href="#Mininet数据中心应用价值" class="headerlink" title="Mininet数据中心应用价值"></a>Mininet数据中心应用价值</h4><img src="/images/1577261039946.png"><h4 id="流量模拟介绍"><a href="#流量模拟介绍" class="headerlink" title="流量模拟介绍"></a>流量模拟介绍</h4><img src="/images/1577261098722.png"><h4 id="数据中心拓扑逻辑网络"><a href="#数据中心拓扑逻辑网络" class="headerlink" title="数据中心拓扑逻辑网络"></a>数据中心拓扑逻辑网络</h4><img src="/images/1577261968857.png"><h4 id="流量随机模型在Mininet中的应用"><a href="#流量随机模型在Mininet中的应用" class="headerlink" title="流量随机模型在Mininet中的应用"></a>流量随机模型在Mininet中的应用</h4><img src="/images/1577262220620.png"><h4 id="Mininet自定义命令拓展实现"><a href="#Mininet自定义命令拓展实现" class="headerlink" title="Mininet自定义命令拓展实现"></a>Mininet自定义命令拓展实现</h4><img src="/images/1577262716254.png"><ul><li><p>首先在mininet/net.py中定义iperf_single()函数，在两个主机之间进行iperf udp测试，并且在server端记录，实现iperf_single函数</p></li><li><p>在net.py中添加自定义命令iperfmulti()函数，依次为每一台主机随机选择另一台主机作为iperf的服务器端，通过调用iperf_single，自身以客户端按照指定参数发送UDP流</p></li><li><p>mininet/cli.py中注册iperfmulti命令，解析用户输入的命令，net.py定义的iperfmulti命令需要在CLI类中注册</p></li><li><p>在bin/mn中加入iperfmulti可执行命令，将iperfmulti加入到对应的列表中</p></li><li><p>重新编译mininet</p><ul><li>进入mininet/util目录，重新编译安装mininet</li><li>重新创建网络，如mn，输入iperf，可用table补全iperfutil，从而可使用iperfmulti进行流量随机模型的测试</li></ul><img src="/images/1577284098609.png"></li></ul><img src="/images/1577284242780.png"><img src="/images/1577284255547.png"><img src="/images/1577284284215.png"><img src="/images/1577284308546.png"><h2 id="Ryu"><a href="#Ryu" class="headerlink" title="Ryu"></a>Ryu</h2><h3 id="Ryu是什么？"><a href="#Ryu是什么？" class="headerlink" title="Ryu是什么？"></a>Ryu是什么？</h3><ul><li>Ryu是一个轻量级的，开源的SDN控制器</li></ul><h3 id="Ryu架构"><a href="#Ryu架构" class="headerlink" title="Ryu架构"></a>Ryu架构</h3><img src="/images/1577417129654.png"><h3 id="基于跳数的最短路径转发原理"><a href="#基于跳数的最短路径转发原理" class="headerlink" title="基于跳数的最短路径转发原理"></a>基于跳数的最短路径转发原理</h3><img src="/images/1578310762562.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Mininet&quot;&gt;&lt;a href=&quot;#Mininet&quot; class=&quot;headerlink&quot; title=&quot;Mininet&quot;&gt;&lt;/a&gt;Mininet&lt;/h2&gt;&lt;h3 id=&quot;Mininet是什么？&quot;&gt;&lt;a href=&quot;#Mininet是什么？&quot; class=&quot;he
+      
+    
+    </summary>
+    
+      <category term="Mininet" scheme="http://www.codedog.fun/categories/Mininet/"/>
+    
+    
+      <category term="Mininet" scheme="http://www.codedog.fun/tags/Mininet/"/>
+    
+      <category term="Ryu" scheme="http://www.codedog.fun/tags/Ryu/"/>
+    
+  </entry>
   
   <entry>
     <title>Ceph组件</title>
