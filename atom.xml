@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.codedog.fun/"/>
-  <updated>2020-01-29T12:29:56.435Z</updated>
+  <updated>2020-02-07T11:13:07.153Z</updated>
   <id>http://www.codedog.fun/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ryu-manager执行问题</title>
+    <link href="http://www.codedog.fun/2020/02/07/ryu-manager%E6%89%A7%E8%A1%8C%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.codedog.fun/2020/02/07/ryu-manager执行问题/</id>
+    <published>2020-02-07T08:00:48.000Z</published>
+    <updated>2020-02-07T11:13:07.153Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="问题描述1：Ryu-manager执行自己编写的py程序后出现No-module-named-XXX-py"><a href="#问题描述1：Ryu-manager执行自己编写的py程序后出现No-module-named-XXX-py" class="headerlink" title="问题描述1：Ryu-manager执行自己编写的py程序后出现No module named XXX.py"></a>问题描述1：Ryu-manager执行自己编写的py程序后出现No module named XXX.py</h4><p><img src="https://s2.ax1x.com/2020/02/07/1gXfMD.png" alt="img"></p><p>注意：报错信息为没有自己定义的app模块</p><ul><li><p>步骤1：先用python XXX.py执行一下，再ryu-manager XXX.py –verbose应该就可以了</p></li><li><p>步骤2：对于图片展示的错误，再确定没有语法错误的情况下，可能在对应的/usr/local/lib/python27/dist-packages/ryu/lib目录下没有跟ryu的编译安装目录下lib文件夹文件同步导致上述问题。例：在ryu/ryu/app下有一个Hub.py文件，可以通过scp命令复制到/usr/local/lib/python27/dist-packages/ryu/lib下。命令如下：<font color="red">scp -r &lt;源文件所在目录&gt; /usr/local/lib/python27/dist-packages/ryu/lib即可！</font></p></li></ul><h4 id="问题描述2：SyntaxError-Non-ASCII-character-‘-xe2’"><a href="#问题描述2：SyntaxError-Non-ASCII-character-‘-xe2’" class="headerlink" title="问题描述2：SyntaxError: Non-ASCII character ‘\xe2’"></a>问题描述2：SyntaxError: Non-ASCII character ‘\xe2’</h4><p><img src="https://s2.ax1x.com/2020/02/07/1gXRxO.png" alt="img"></p><p>在python执行时出现该问题是因为文件格式编码出现了问题，具体原因和解决方法如下：</p><ul><li><p>原因分析“SyntaxError: Non-ASCII character ‘\xe2’ in file”翻译为中文的意思是：在文件中存在着非法的ASCII字符</p></li><li><p>ASCII是8位即为一个字符，一共有256个字符，随着计算机的快速发展，现在已经发展到使用2个或者4个字符</p></li><li><p>出现该问题最常见于代码中出现中文字样，由于中文与英文编码上的差别而导致了错误。</p></li><li><p>解决方法：可以在文件头追加：<font color="green">– coding: cp936 –</font> 或者 <font color="orange"># -*- coding: utf-8</font></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;问题描述1：Ryu-manager执行自己编写的py程序后出现No-module-named-XXX-py&quot;&gt;&lt;a href=&quot;#问题描述1：Ryu-manager执行自己编写的py程序后出现No-module-named-XXX-py&quot; class=&quot;heade
+      
+    
+    </summary>
+    
+      <category term="Bug" scheme="http://www.codedog.fun/categories/Bug/"/>
+    
+    
+      <category term="Ryu" scheme="http://www.codedog.fun/tags/Ryu/"/>
+    
+  </entry>
   
   <entry>
     <title>遗传算法</title>
